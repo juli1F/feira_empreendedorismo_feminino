@@ -1,0 +1,28 @@
+
+
+*{
+    margin:0;
+    padding:10;
+    box-sizing: border-box;
+}
+
+body{
+    background: #FBE8B0;
+    background: linear-gradient(90deg, rgba(251, 232, 176, 1) 1%, rgba(255, 186, 162, 0.96) 24%, rgba(255, 123, 145, 1) 63%, rgba(237, 118, 180, 1) 100%);
+}
+
+.content{
+
+    background: #FBCDBE;
+    border-radius: 30px;
+    width: 200%;
+    height: 100%;
+}
+.img{
+    width: 200px;
+    height: 200px;
+}
+.form-login{
+    background: rgb(38, 0, 128);
+    align-content: right;
+}
