@@ -1,0 +1,2700 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Elas Empreendedoras</title>
+
+  <style>
+
+    /* =========================================================
+       RESET
+       ========================================================= */
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+
+    /* =========================================================
+       VARIÁVEIS
+       ========================================================= */
+
+    :root {
+      --pink: #f3a6c5;
+      --pink-light: #ffc0c4;
+      --pink-soft: #fce5e4;
+
+      --purple: #c9a0cf;
+      --purple-dark: #a98bb1;
+
+      --cream: #fff0dc;
+      --cream-dark: #f9dfb5;
+
+      --white: #ffffff;
+
+      --gray: #999999;
+      --gray-dark: #555555;
+
+      --border: #d3aeb0;
+    }
+
+
+    /* =========================================================
+       BODY / VIEWPORT
+       ========================================================= */
+
+    html,
+    body {
+      margin: 0;
+
+      width: 100%;
+      min-height: 100vh;
+
+      background:
+        linear-gradient(
+          135deg,
+          #efa3c4 0%,
+          #f2abc9 32%,
+          #f7bdc7 58%,
+          #f9ccc0 78%,
+          #f8d7c3 100%
+        );
+
+      overflow: hidden;
+
+      position: relative;
+    }
+
+
+    /* =========================================================
+       CURVA ROSA - CANTO SUPERIOR DIREITO
+       ========================================================= */
+
+    body::before {
+      content: "";
+
+      position: fixed;
+
+      width: 650px;
+      height: 650px;
+
+      right: -210px;
+      top: -180px;
+
+      border: 50px solid
+        rgba(231, 118, 166, 0.55);
+
+      border-radius: 50%;
+
+      pointer-events: none;
+
+      z-index: 0;
+    }
+
+
+    /* =========================================================
+       FAIXA CLARA - CANTO INFERIOR ESQUERDO
+       ========================================================= */
+
+    body::after {
+      content: "";
+
+      position: fixed;
+
+      width: 650px;
+      height: 650px;
+
+      left: -500px;
+      bottom: -390px;
+
+      border: 50px solid
+        rgba(255, 246, 197, 0.85);
+
+      border-radius: 50%;
+
+      pointer-events: none;
+
+      z-index: 0;
+    }
+
+
+    /* =========================================================
+       PÁGINA PRINCIPAL
+       ========================================================= */
+
+    .page {
+      width:
+        calc(100% - 60px);
+
+      max-width:
+        1500px;
+
+      height:
+        calc(100vh - 50px);
+
+      min-height:
+        0;
+
+      margin:
+        20px auto 0;
+
+      background:
+        rgba(255,247,237,.92);
+
+      border-radius:
+        42px;
+
+      position:
+        relative;
+
+      overflow:
+        hidden;
+
+      z-index:
+        1;
+
+      box-shadow:
+        0 8px 30px
+        rgba(120,80,90,.05);
+
+      opacity:
+        0;
+
+      transform:
+        translateY(45px)
+        scale(.94);
+
+      filter:
+        blur(4px);
+
+      animation:
+        pageEntrance
+        1s
+        cubic-bezier(.16,1,.3,1)
+        forwards;
+    }
+
+
+    /* =========================================================
+       ANIMAÇÃO DE ENTRADA DA PÁGINA
+       ========================================================= */
+
+    @keyframes pageEntrance {
+
+      0% {
+        opacity: 0;
+
+        transform:
+          translateY(45px)
+          scale(.94);
+
+        filter:
+          blur(4px);
+      }
+
+      50% {
+        opacity: 1;
+
+        filter:
+          blur(1px);
+      }
+
+      100% {
+        opacity: 1;
+
+        transform:
+          translateY(0)
+          scale(1);
+
+        filter:
+          blur(0);
+      }
+
+    }
+
+
+    /* =========================================================
+       HEADER
+       ========================================================= */
+
+    .header {
+      margin:
+        33px 35px 0;
+
+      height:
+        160px;
+
+      background:
+        var(--cream-dark);
+
+      border-radius:
+        24px 24px 0 0;
+
+      padding:
+        12px 28px 0;
+    }
+
+
+    /* =========================================================
+       TOPBAR
+       
+       AUMENTADA E CENTRALIZADA
+       ========================================================= */
+
+    .topbar {
+      height:
+        80px;
+
+      width:
+        100%;
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        center;
+
+      gap:
+        20px;
+    }
+
+
+    /* =========================================================
+       LOGO
+       ========================================================= */
+
+    .logo {
+      width:
+        700px;
+
+      height:
+        70px;
+
+      flex:
+        0 0 70px;
+
+      background: white;
+
+      border:
+        1px solid #b7b7b7;
+
+      border-radius:
+        50%;
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        center;
+
+      text-align:
+        center;
+
+      color:
+        #e293ad;
+
+      font-family:
+        Georgia,
+        serif;
+
+      font-size:
+        10px;
+
+      line-height:
+        12px;
+
+      box-shadow:
+        inset
+        0 0 0 3px
+        rgba(255,255,255,.8);
+
+      position:
+        relative;
+
+      overflow:
+        hidden;
+
+      transition:
+        .2s;
+    }
+
+    .logoimagem {
+      height: 100px;
+    }
+
+
+    .logo:hover {
+      transform:
+        scale(1.03);
+    }
+
+
+    /* =========================================================
+       CAMPO DE PESQUISA
+       ========================================================= */
+
+    .search {
+      height:
+        56px;
+
+      width:
+        540px;
+
+      flex:
+        0 0 540px;
+
+      background:
+        white;
+
+      border:
+        1px solid #aaa;
+
+      border-radius:
+        13px;
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      padding:
+        0 16px;
+
+      transition:
+        .2s;
+    }
+
+
+    .search:focus-within {
+      border-color:
+        #9d7b9f;
+
+      box-shadow:
+        0 0 0 3px
+        rgba(201,160,207,.2);
+    }
+
+
+    /* =========================================================
+       ÍCONE DA LUPA
+       ========================================================= */
+
+    .search-icon {
+      width:
+        21px;
+
+      height:
+        21px;
+
+      border:
+        3px solid #222;
+
+      border-radius:
+        50%;
+
+      position:
+        relative;
+
+      flex-shrink:
+        0;
+    }
+
+
+    .search-icon::after {
+      content:
+        "";
+
+      position:
+        absolute;
+
+      width:
+        9px;
+
+      height:
+        3px;
+
+      background:
+        #222;
+
+      transform:
+        rotate(45deg);
+
+      right:
+        -7px;
+
+      bottom:
+        -4px;
+
+      border-radius:
+        2px;
+    }
+
+
+    /* =========================================================
+       INPUT
+       ========================================================= */
+
+    .search input {
+      width:
+        100%;
+
+      height:
+        38px;
+
+      margin-left:
+        17px;
+
+      border:
+        none;
+
+      outline:
+        none;
+
+      font-size:
+        17px;
+
+      color:
+        #555;
+
+      border-bottom:
+        1px solid #aaa;
+
+      background:
+        transparent;
+    }
+
+
+    .search input::placeholder {
+      color:
+        transparent;
+    }
+
+
+    /* =========================================================
+       BOTÃO ROXO DE PESQUISA
+       ========================================================= */
+
+    .search-btn {
+      width:
+        110px;
+
+      height:
+        43px;
+
+      flex:
+        0 0 110px;
+
+      border:
+        none;
+
+      border-radius:
+        24px;
+
+      background:
+        #caa4cf;
+
+      cursor:
+        pointer;
+
+      transition:
+        .2s;
+    }
+
+
+    .search-btn:hover {
+      background:
+        #b88ebf;
+
+      transform:
+        scale(1.04);
+    }
+
+
+    .search-btn:active {
+      transform:
+        scale(.98);
+    }
+
+
+    /* =========================================================
+       BOTÕES DO HEADER
+       ========================================================= */
+
+    .header-actions {
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      gap:
+        6px;
+
+      background:
+        white;
+
+      border:
+        1px solid #aaa;
+
+      border-radius:
+        25px;
+
+      padding:
+        4px;
+    }
+
+
+    .action {
+      width:
+        50px;
+
+      height:
+        38px;
+
+      border:
+        1px solid #aaa;
+
+      background:
+        #f7f7f7;
+
+      cursor:
+        pointer;
+
+      transition:
+        .2s;
+    }
+
+
+    .action:hover {
+      background:
+        white;
+
+      transform:
+        scale(1.04);
+    }
+
+
+    /* =========================================================
+       MENU HAMBÚRGUER
+       ========================================================= */
+
+    .menu-btn {
+      border-radius:
+        20px;
+
+      position:
+        relative;
+    }
+
+
+    .menu-btn span,
+    .menu-btn::before,
+    .menu-btn::after {
+      content:
+        "";
+
+      display:
+        block;
+
+      width:
+        22px;
+
+      height:
+        3px;
+
+      background:
+        #666;
+
+      margin:
+        4px auto;
+
+      border-radius:
+        2px;
+    }
+
+
+    /* =========================================================
+       PERFIL
+       ========================================================= */
+
+    .profile-btn {
+      border-radius:
+        50%;
+
+      position:
+        relative;
+    }
+
+
+    .profile-head {
+      width:
+        10px;
+
+      height:
+        10px;
+
+      border:
+        1px solid #666;
+
+      border-radius:
+        50%;
+
+      margin:
+        4px auto 2px;
+    }
+
+
+    .profile-body {
+      width:
+        20px;
+
+      height:
+        10px;
+
+      border:
+        1px solid #666;
+
+      border-radius:
+        12px 12px 5px 5px;
+
+      margin:
+        auto;
+    }
+
+
+    /* =========================================================
+       CATEGORIAS
+       ========================================================= */
+
+    .categories {
+      height:
+        68px;
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        center;
+
+      gap:
+        14px;
+
+      overflow-x:
+        auto;
+
+      overflow-y:
+        hidden;
+
+      scrollbar-width:
+        none;
+    }
+
+
+    .categories::-webkit-scrollbar {
+      display:
+        none;
+    }
+
+
+    .category {
+      height:
+        53px;
+
+      min-width:
+        53px;
+
+      border:
+        none;
+
+      border-right:
+        2px solid #bba47e;
+
+      background:
+        transparent;
+
+      cursor:
+        pointer;
+
+      position:
+        relative;
+
+      padding:
+        0 14px;
+
+      transition:
+        .2s;
+    }
+
+
+    .category:last-child {
+      border-right:
+        none;
+    }
+
+
+    .category-icon {
+      width:
+        52px;
+
+      height:
+        52px;
+
+      background:
+        #f7f7f7;
+
+      border-radius:
+        11px;
+
+      transition:
+        .2s;
+    }
+
+
+    .category:hover .category-icon {
+      background:
+        white;
+
+      transform:
+        translateY(-3px);
+    }
+
+
+    .category.active::after {
+      content:
+        "";
+
+      position:
+        absolute;
+
+      bottom:
+        -2px;
+
+      left:
+        5px;
+
+      width:
+        52px;
+
+      height:
+        2px;
+
+      background:
+        #222;
+    }
+
+
+    /* =========================================================
+       ÁREA DOS CARDS
+       ========================================================= */
+
+    .content {
+      margin:
+        10px 35px 0;
+
+      height:
+        calc(100% - 205px);
+
+      min-height:
+        0;
+
+      background:
+        rgba(250,225,184,.82);
+
+      border-radius:
+        24px 24px 0 0;
+
+      padding:
+        25px 28px 35px;
+
+      overflow-y:
+        auto;
+
+      overflow-x:
+        hidden;
+
+      scrollbar-color:
+        #999 transparent;
+
+      scrollbar-width:
+        thin;
+    }
+
+
+    /* =========================================================
+       SCROLL CHROME
+       ========================================================= */
+
+    .content::-webkit-scrollbar {
+      width:
+        8px;
+    }
+
+
+    .content::-webkit-scrollbar-track {
+      background:
+        transparent;
+    }
+
+
+    .content::-webkit-scrollbar-thumb {
+      background:
+        #999;
+
+      border-radius:
+        10px;
+    }
+
+
+    .content::-webkit-scrollbar-thumb:hover {
+      background:
+        #777;
+    }
+
+
+    /* =========================================================
+       GRID DOS CARDS
+       ========================================================= */
+
+    .grid {
+      display:
+        grid;
+
+      grid-template-columns:
+        repeat(
+          6,
+          minmax(70px,1fr)
+        );
+
+      column-gap:
+        29px;
+
+      row-gap:
+        28px;
+
+      min-width:
+        0;
+    }
+
+
+    /* =========================================================
+       CARD
+       ========================================================= */
+
+    .card {
+      min-width:
+        0;
+
+      cursor:
+        pointer;
+
+      opacity:
+        0;
+
+      transform:
+        translateY(30px)
+        scale(.97);
+
+      animation:
+        cardEntrance
+        .55s
+        cubic-bezier(.16,1,.3,1)
+        forwards;
+
+      animation-delay:
+        calc(
+          1s +
+          var(--card-delay,0ms)
+        );
+    }
+
+
+    /* =========================================================
+       ANIMAÇÃO DOS CARDS
+       ========================================================= */
+
+    @keyframes cardEntrance {
+
+      0% {
+        opacity:
+          0;
+
+        transform:
+          translateY(30px)
+          scale(.97);
+      }
+
+      100% {
+        opacity:
+          1;
+
+        transform:
+          translateY(0)
+          scale(1);
+      }
+
+    }
+
+
+    /* =========================================================
+       HOVER DOS CARDS
+       ========================================================= */
+
+    .card:hover {
+      transform:
+        translateY(-5px);
+    }
+
+
+    /* =========================================================
+       IMAGEM DO CARD
+       ========================================================= */
+
+    .card-image {
+      width:
+        100%;
+
+      aspect-ratio:
+        1 / 1;
+
+      min-height:
+        135px;
+
+      background:
+        var(--pink-light);
+
+      border:
+        1px solid #bd9295;
+
+      border-radius:
+        19px;
+
+      overflow:
+        hidden;
+
+      position:
+        relative;
+    }
+
+
+    .card-image img {
+      width:
+        100%;
+
+      height:
+        100%;
+
+      object-fit:
+        cover;
+
+      display:
+        none;
+    }
+
+
+    .card-image.has-image img {
+      display:
+        block;
+    }
+
+
+    .card-placeholder {
+      width:
+        100%;
+
+      height:
+        100%;
+
+      display:
+        flex;
+
+      justify-content:
+        center;
+
+      align-items:
+        center;
+
+      color:
+        rgba(100,50,60,.35);
+
+      font-size:
+        35px;
+
+      font-weight:
+        bold;
+    }
+
+
+    /* =========================================================
+       INFORMAÇÕES DO CARD
+       ========================================================= */
+
+    .card-info {
+      padding:
+        10px 5px 0;
+    }
+
+
+    .card-title {
+      height:
+        5px;
+
+      width:
+        100%;
+
+      background:
+        #a7a0a0;
+
+      border-radius:
+        5px;
+
+      margin-bottom:
+        11px;
+
+      opacity:
+        .85;
+    }
+
+
+    .card-title.small {
+      width:
+        86%;
+
+      margin:
+        0 auto;
+
+      height:
+        4px;
+    }
+
+
+    .card-description {
+      height:
+        4px;
+
+      width:
+        72%;
+
+      background:
+        #a7a0a0;
+
+      margin:
+        10px auto 0;
+
+      border-radius:
+        5px;
+
+      opacity:
+        .7;
+    }
+
+
+    /* =========================================================
+       MODAL
+       ========================================================= */
+
+    .overlay {
+      position:
+        fixed;
+
+      inset:
+        0;
+
+      background:
+        rgba(80,50,70,.35);
+
+      display:
+        none;
+
+      justify-content:
+        center;
+
+      align-items:
+        center;
+
+      z-index:
+        100;
+
+      backdrop-filter:
+        blur(3px);
+    }
+
+
+    .overlay.show {
+      display:
+        flex;
+    }
+
+
+    .modal {
+      width:
+        min(
+          450px,
+          calc(100% - 40px)
+        );
+
+      background:
+        #fff7ed;
+
+      border-radius:
+        25px;
+
+      padding:
+        28px;
+
+      box-shadow:
+        0 20px 60px
+        rgba(50,30,40,.25);
+
+      animation:
+        modalIn
+        .25s
+        ease;
+
+      position:
+        relative;
+    }
+
+
+    @keyframes modalIn {
+
+      from {
+        opacity:
+          0;
+
+        transform:
+          scale(.9);
+      }
+
+      to {
+        opacity:
+          1;
+
+        transform:
+          scale(1);
+      }
+
+    }
+
+
+    .modal-close {
+      position:
+        absolute;
+
+      right:
+        18px;
+
+      top:
+        15px;
+
+      width:
+        32px;
+
+      height:
+        32px;
+
+      border:
+        none;
+
+      border-radius:
+        50%;
+
+      background:
+        #f5b3c4;
+
+      cursor:
+        pointer;
+
+      font-size:
+        18px;
+    }
+
+
+    .modal-image {
+      height:
+        170px;
+
+      border-radius:
+        18px;
+
+      background:
+        #ffc0c4;
+
+      margin-bottom:
+        20px;
+    }
+
+
+    .modal h2 {
+      color:
+        #8c6470;
+
+      margin-bottom:
+        10px;
+    }
+
+
+    .modal p {
+      color:
+        #777;
+
+      line-height:
+        1.6;
+    }
+
+
+    /* =========================================================
+       MENU LATERAL
+       ========================================================= */
+
+    .side-menu {
+      position:
+        fixed;
+
+      top:
+        0;
+
+      left:
+        -320px;
+
+      width:
+        300px;
+
+      height:
+        100vh;
+
+      background:
+        #fff5e8;
+
+      z-index:
+        200;
+
+      box-shadow:
+        -10px 0 30px
+        rgba(0,0,0,.15);
+
+      padding:
+        30px;
+
+      transition:
+        left .3s ease;
+    }
+
+
+    .side-menu.open {
+      left:
+        0;
+    }
+
+
+    .side-menu h2 {
+      color:
+        #9d7183;
+
+      margin-bottom:
+        30px;
+    }
+
+
+    .side-menu button {
+      width:
+        100%;
+
+      padding:
+        15px;
+
+      margin-bottom:
+        10px;
+
+      border:
+        none;
+
+      border-radius:
+        12px;
+
+      background:
+        #f5d4dd;
+
+      color:
+        #765968;
+
+      cursor:
+        pointer;
+
+      text-align:
+        left;
+
+      font-size:
+        15px;
+    }
+
+
+    .side-menu button:hover {
+      background:
+        #e9bccc;
+    }
+
+
+    .menu-close {
+      position:
+        absolute;
+
+      top:
+        20px;
+
+      right:
+        20px;
+
+      border:
+        none !important;
+
+      background:
+        transparent !important;
+
+      width:
+        auto !important;
+
+      font-size:
+        25px !important;
+    }
+
+
+    /* =========================================================
+       TABLET
+       ========================================================= */
+
+    @media (max-width:850px) {
+
+      .page {
+        width:
+          calc(100% - 30px);
+
+        height:
+          calc(100vh - 40px);
+
+        margin-top:
+          20px;
+      }
+
+
+      .header {
+        margin-left:
+          20px;
+
+        margin-right:
+          20px;
+
+        padding-left:
+          15px;
+
+        padding-right:
+          15px;
+      }
+
+
+      .content {
+        margin-left:
+          20px;
+
+        margin-right:
+          20px;
+
+        height:
+          calc(100% - 205px);
+      }
+
+
+      .grid {
+        grid-template-columns:
+          repeat(3,1fr);
+      }
+
+
+      /* Topbar um pouco menor no tablet */
+
+      .logo {
+        width:
+          58px;
+
+        height:
+          58px;
+
+        flex-basis:
+          58px;
+      }
+
+
+      .logo::before {
+        font-size:
+          21px;
+      }
+
+
+      .search {
+        width:
+          420px;
+
+        flex-basis:
+          420px;
+      }
+
+
+      .search-btn {
+        width:
+          85px;
+
+        flex-basis:
+          85px;
+      }
+
+
+      .header-actions {
+        gap:
+          4px;
+      }
+
+
+      .action {
+        width:
+          43px;
+
+        height:
+          35px;
+      }
+
+    }
+
+
+    /* =========================================================
+       CELULAR
+       ========================================================= */
+
+    @media (max-width:600px) {
+
+      html,
+      body {
+        width:
+          100%;
+
+        height:
+          100%;
+
+        overflow:
+          hidden;
+      }
+
+
+      .page {
+        width:
+          100%;
+
+        height:
+          100vh;
+
+        min-height:
+          0;
+
+        margin:
+          0;
+
+        border-radius:
+          0;
+      }
+
+
+      .header {
+        margin:
+          20px 15px 0;
+
+        height:
+          150px;
+
+        padding:
+          10px 10px 0;
+      }
+
+
+      .topbar {
+        height:
+          62px;
+
+        gap:
+          8px;
+      }
+
+
+      .logo {
+        width:
+          52px;
+
+        height:
+          52px;
+
+        flex-basis:
+          52px;
+      }
+
+
+      .logo::before {
+        font-size:
+          18px;
+
+        top:
+          7px;
+      }
+
+
+      .logo span {
+        margin-top:
+          29px;
+
+        font-size:
+          7px;
+      }
+
+
+      .search {
+        height:
+          48px;
+
+        width:
+          auto;
+
+        flex:
+          1;
+
+        min-width:
+          0;
+
+        padding:
+          0 12px;
+      }
+
+
+      .search-icon {
+        width:
+          18px;
+
+        height:
+          18px;
+      }
+
+
+      .search input {
+        margin-left:
+          12px;
+
+        font-size:
+          15px;
+      }
+
+
+      .search-btn {
+        display:
+          none;
+      }
+
+
+      .header-actions {
+        display:
+          none;
+      }
+
+
+      .categories {
+        height:
+          68px;
+
+        justify-content:
+          flex-start;
+
+        gap:
+          10px;
+      }
+
+
+      .category {
+        padding:
+          0 10px;
+      }
+
+
+      .content {
+        margin:
+          10px 15px 0;
+
+        height:
+          calc(100% - 180px);
+
+        min-height:
+          0;
+
+        padding:
+          20px 15px;
+
+        overflow-y:
+          auto;
+
+        overflow-x:
+          hidden;
+      }
+
+
+      .grid {
+        grid-template-columns:
+          repeat(1,1fr);
+
+        gap:
+          22px;
+      }
+
+
+      .card-image {
+        border-radius:
+          5px;
+      }
+
+    }
+
+
+    /* =========================================================
+       REDUZIR ANIMAÇÕES
+       ========================================================= */
+
+    @media (prefers-reduced-motion: reduce) {
+
+      .page,
+      .card {
+        animation:
+          none;
+
+        opacity:
+          1;
+
+        transform:
+          none;
+
+        filter:
+          none;
+      }
+
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+
+  <!-- =======================================================
+       PÁGINA
+       ======================================================= -->
+
+  <main class="page">
+
+
+    <!-- =====================================================
+         HEADER
+         ===================================================== -->
+
+    <header class="header">
+
+
+      <div class="topbar">
+
+
+        <!-- LOGO -->
+
+        <div
+          class="logo"
+          onclick="goHome()"
+          title="Voltar para o início"
+        >
+
+          <img
+            src="logo.png"
+            class="logoimagem"
+            onerror="this.style.display='none'"
+          >
+        </div>
+
+
+        <!-- PESQUISA -->
+
+        <div class="search">
+
+          <div class="search-icon"></div>
+
+          <input
+            id="searchInput"
+            type="text"
+            placeholder="Buscar..."
+            autocomplete="off"
+          >
+
+        </div>
+
+
+        <!-- BOTÃO DE PESQUISA -->
+
+        <button
+          class="search-btn"
+          id="searchButton"
+          aria-label="Pesquisar"
+        ></button>
+
+
+        <!-- AÇÕES -->
+
+        <div class="header-actions">
+
+
+          <!-- MENU -->
+
+          <button
+            class="action menu-btn"
+            id="menuButton"
+            aria-label="Abrir menu"
+          >
+
+            <span></span>
+
+          </button>
+
+
+          <!-- PERFIL -->
+
+          <button
+            class="action profile-btn"
+            id="profileButton"
+            aria-label="Perfil"
+          >
+
+            <div class="profile-head"></div>
+
+            <div class="profile-body"></div>
+
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <!-- ===================================================
+           CATEGORIAS
+           =================================================== -->
+
+      <nav
+        class="categories"
+        id="categories"
+      >
+
+
+        <button
+          class="category active"
+          data-category="Todos"
+        >
+
+          <div class="category-icon"></div>
+
+        </button>
+
+
+        <button
+          class="category"
+          data-category="Moda"
+        >
+
+          <div class="category-icon"></div>
+
+        </button>
+
+
+        <button
+          class="category"
+          data-category="Beleza"
+        >
+
+          <div class="category-icon"></div>
+
+        </button>
+
+
+        <button
+          class="category"
+          data-category="Tecnologia"
+        >
+
+          <div class="category-icon"></div>
+
+        </button>
+
+
+        <button
+          class="category"
+          data-category="Gastronomia"
+        >
+
+          <div class="category-icon"></div>
+
+        </button>
+
+
+        <button
+          class="category"
+          data-category="Artesanato"
+        >
+
+          <div class="category-icon"></div>
+
+        </button>
+
+
+        <button
+          class="category"
+          data-category="Educação"
+        >
+
+          <div class="category-icon"></div>
+
+        </button>
+
+
+        <button
+          class="category"
+          data-category="Negócios"
+        >
+
+          <div class="category-icon"></div>
+
+        </button>
+
+
+        <button
+          class="category"
+          data-category="Marketing"
+        >
+
+          <div class="category-icon"></div>
+
+        </button>
+
+
+        <button
+          class="category"
+          data-category="Outros"
+        >
+
+          <div class="category-icon"></div>
+
+        </button>
+
+
+      </nav>
+
+    </header>
+
+
+    <!-- =====================================================
+         ÁREA DOS CARDS
+         ===================================================== -->
+
+    <section class="content">
+
+      <div
+        class="grid"
+        id="cardGrid"
+      ></div>
+
+    </section>
+
+
+  </main>
+
+
+  <!-- =======================================================
+       MODAL
+       ======================================================= -->
+
+  <div
+    class="overlay"
+    id="overlay"
+  >
+
+    <div class="modal">
+
+
+      <button
+        class="modal-close"
+        id="modalClose"
+        aria-label="Fechar"
+      >
+        ×
+      </button>
+
+
+      <div
+        class="modal-image"
+        id="modalImage"
+      ></div>
+
+
+      <h2 id="modalTitle">
+        Título
+      </h2>
+
+
+      <p id="modalDescription">
+        Descrição da empreendedora.
+      </p>
+
+
+    </div>
+
+  </div>
+
+
+  <!-- =======================================================
+       MENU LATERAL
+       ======================================================= -->
+
+  <aside
+    class="side-menu"
+    id="sideMenu"
+  >
+
+
+    <button
+      class="menu-close"
+      id="menuClose"
+      aria-label="Fechar"
+    >
+      ×
+    </button>
+
+
+    <h2>
+      Menu
+    </h2>
+
+
+    <button>
+      Início
+    </button>
+
+
+    <button>
+      Empreendedoras
+    </button>
+
+
+    <button>
+      Categorias
+    </button>
+
+
+    <button>
+      Favoritos
+    </button>
+
+
+    <button>
+      Sobre nós
+    </button>
+
+
+  </aside>
+
+
+  <!-- =======================================================
+       JAVASCRIPT
+       ======================================================= -->
+
+  <script>
+    
+    
+
+    /* =======================================================
+       DADOS DOS CARDS
+       ======================================================= */
+
+    const empreendedoras = [
+
+      {
+        nome: "Ana Moda",
+        categoria: "Moda",
+        descricao:
+          "Empreendedora especializada em moda feminina."
+      },
+
+      {
+        nome: "Beatriz Beauty",
+        categoria: "Beleza",
+        descricao:
+          "Produtos e serviços de beleza desenvolvidos para mulheres."
+      },
+
+      {
+        nome: "Camila Tech",
+        categoria: "Tecnologia",
+        descricao:
+          "Soluções digitais e tecnologia para pequenos negócios."
+      },
+
+      {
+        nome: "Diana Gourmet",
+        categoria: "Gastronomia",
+        descricao:
+          "Gastronomia artesanal e produtos feitos com carinho."
+      },
+
+      {
+        nome: "Elisa Artes",
+        categoria: "Artesanato",
+        descricao:
+          "Artesanato autoral e peças exclusivas."
+      },
+
+      {
+        nome: "Fernanda Edu",
+        categoria: "Educação",
+        descricao:
+          "Educação, cursos e desenvolvimento profissional."
+      },
+
+      {
+        nome: "Gabriela Business",
+        categoria: "Negócios",
+        descricao:
+          "Consultoria e estratégias para empreendedoras."
+      },
+
+      {
+        nome: "Helena Marketing",
+        categoria: "Marketing",
+        descricao:
+          "Marketing digital e posicionamento de marcas."
+      },
+
+      {
+        nome: "Isabela Moda",
+        categoria: "Moda",
+        descricao:
+          "Marca independente de roupas femininas."
+      },
+
+      {
+        nome: "Juliana Beauty",
+        categoria: "Beleza",
+        descricao:
+          "Cosméticos e cuidados pessoais."
+      },
+
+      {
+        nome: "Karina Digital",
+        categoria: "Tecnologia",
+        descricao:
+          "Produtos digitais e soluções inovadoras."
+      },
+
+      {
+        nome: "Larissa Doces",
+        categoria: "Gastronomia",
+        descricao:
+          "Doces artesanais e confeitaria."
+      },
+
+      {
+        nome: "Mariana Criativa",
+        categoria: "Artesanato",
+        descricao:
+          "Criação de produtos artesanais personalizados."
+      },
+
+      {
+        nome: "Natália Cursos",
+        categoria: "Educação",
+        descricao:
+          "Cursos e conteúdos educacionais."
+      },
+
+      {
+        nome: "Olívia Negócios",
+        categoria: "Negócios",
+        descricao:
+          "Estratégias para crescimento empresarial."
+      },
+
+      {
+        nome: "Paula Marketing",
+        categoria: "Marketing",
+        descricao:
+          "Estratégias de marketing e comunicação."
+      },
+
+      {
+        nome: "Renata Fashion",
+        categoria: "Moda",
+        descricao:
+          "Moda autoral e tendências."
+      },
+
+      {
+        nome: "Sofia Beauty",
+        categoria: "Beleza",
+        descricao:
+          "Cuidados e produtos de beleza."
+      },
+
+      {
+        nome: "Tatiana Tech",
+        categoria: "Tecnologia",
+        descricao:
+          "Tecnologia aplicada ao empreendedorismo."
+      },
+
+      {
+        nome: "Valentina Gourmet",
+        categoria: "Gastronomia",
+        descricao:
+          "Culinária artesanal e experiências gastronômicas."
+      }
+
+    ];
+
+
+    /* =======================================================
+       ELEMENTOS
+       ======================================================= */
+
+    const grid =
+      document.getElementById(
+        "cardGrid"
+      );
+
+
+    const searchInput =
+      document.getElementById(
+        "searchInput"
+      );
+
+
+    const searchButton =
+      document.getElementById(
+        "searchButton"
+      );
+
+
+    const overlay =
+      document.getElementById(
+        "overlay"
+      );
+
+
+    const modalClose =
+      document.getElementById(
+        "modalClose"
+      );
+
+
+    const modalTitle =
+      document.getElementById(
+        "modalTitle"
+      );
+
+
+    const modalDescription =
+      document.getElementById(
+        "modalDescription"
+      );
+
+
+    const modalImage =
+      document.getElementById(
+        "modalImage"
+      );
+
+
+    const sideMenu =
+      document.getElementById(
+        "sideMenu"
+      );
+
+
+    const menuButton =
+      document.getElementById(
+        "menuButton"
+      );
+
+
+    const menuClose =
+      document.getElementById(
+        "menuClose"
+      );
+
+
+      const profileButton = document.getElementById("profileButton");
+
+      profileButton.addEventListener("click", () => {
+      window.location.href = "perfil.html";
+      });
+
+
+    /* Categoria atual */
+
+    let categoriaAtual =
+      "Todos";
+
+
+    /* =======================================================
+       RENDERIZAR CARDS
+       ======================================================= */
+
+    function renderCards(lista) {
+
+      grid.innerHTML = "";
+
+
+      if (lista.length === 0) {
+
+        grid.innerHTML = `
+
+          <div
+            style="
+              grid-column:1/-1;
+              text-align:center;
+              padding:60px 20px;
+              color:#9b8585;
+              font-size:16px;
+            "
+          >
+
+            Nenhuma empreendedora encontrada.
+
+          </div>
+
+        `;
+
+        return;
+      }
+
+
+      lista.forEach(
+        (item,index) => {
+
+          const card =
+            document.createElement(
+              "article"
+            );
+
+
+          card.className =
+            "card";
+
+
+          card.style.setProperty(
+            "--card-delay",
+            `${index * 60}ms`
+          );
+
+
+          card.innerHTML = `
+
+            <div class="card-image">
+
+              <div class="card-placeholder">
+
+                ${item.nome.charAt(0)}
+
+              </div>
+
+            </div>
+
+
+            <div class="card-info">
+
+              <div class="card-title"></div>
+
+              <div class="card-title small"></div>
+
+              <div class="card-description"></div>
+
+            </div>
+
+          `;
+
+
+          /* =================================================
+             CLICK NO CARD
+             ================================================= */
+
+          card.addEventListener(
+            "click",
+            () => {
+
+              modalTitle.textContent =
+                item.nome;
+
+
+              modalDescription.textContent =
+                item.descricao;
+
+
+              modalImage.innerHTML = `
+
+                <div
+                  style="
+                    width:100%;
+                    height:100%;
+
+                    display:flex;
+
+                    align-items:center;
+                    justify-content:center;
+
+                    color:#a06c78;
+
+                    font-size:70px;
+
+                    font-weight:bold;
+                  "
+                >
+
+                  ${item.nome.charAt(0)}
+
+                </div>
+
+              `;
+
+
+              overlay.classList.add(
+                "show"
+              );
+
+            }
+          );
+
+
+          grid.appendChild(
+            card
+          );
+
+        }
+      );
+
+    }
+
+
+    /* =======================================================
+       FILTRAR CARDS
+       ======================================================= */
+
+    function filtrar() {
+
+      const termo =
+        searchInput.value
+          .trim()
+          .toLowerCase();
+
+
+      const resultado =
+        empreendedoras.filter(
+          item => {
+
+            const correspondeCategoria =
+              categoriaAtual === "Todos" ||
+              item.categoria ===
+                categoriaAtual;
+
+
+            const correspondeBusca =
+              !termo ||
+
+              item.nome
+                .toLowerCase()
+                .includes(termo) ||
+
+              item.categoria
+                .toLowerCase()
+                .includes(termo);
+
+
+            return (
+              correspondeCategoria &&
+              correspondeBusca
+            );
+
+          }
+        );
+
+
+      renderCards(
+        resultado
+      );
+
+    }
+
+
+    /* =======================================================
+       CATEGORIAS
+       ======================================================= */
+
+    document
+      .querySelectorAll(
+        ".category"
+      )
+      .forEach(
+        button => {
+
+          button.addEventListener(
+            "click",
+            () => {
+
+              document
+                .querySelectorAll(
+                  ".category"
+                )
+                .forEach(
+                  item => {
+
+                    item.classList.remove(
+                      "active"
+                    );
+
+                  }
+                );
+
+
+              button.classList.add(
+                "active"
+              );
+
+
+              categoriaAtual =
+                button.dataset.category;
+
+
+              filtrar();
+
+            }
+          );
+
+        }
+      );
+
+
+    /* =======================================================
+       PESQUISA EM TEMPO REAL
+       ======================================================= */
+
+    searchInput.addEventListener(
+      "input",
+      filtrar
+    );
+
+
+    /* =======================================================
+       BOTÃO PESQUISAR
+       ======================================================= */
+
+    searchButton.addEventListener(
+      "click",
+      filtrar
+    );
+
+
+    /* =======================================================
+       ENTER NA PESQUISA
+       ======================================================= */
+
+    searchInput.addEventListener(
+      "keydown",
+      event => {
+
+        if (
+          event.key ===
+          "Enter"
+        ) {
+
+          filtrar();
+
+        }
+
+      }
+    );
+
+
+    /* =======================================================
+       FECHAR MODAL
+       ======================================================= */
+
+    modalClose.addEventListener(
+      "click",
+      () => {
+
+        overlay.classList.remove(
+          "show"
+        );
+
+      }
+    );
+
+
+    /* =======================================================
+       CLICAR FORA DO MODAL
+       ======================================================= */
+
+    overlay.addEventListener(
+      "click",
+      event => {
+
+        if (
+          event.target ===
+          overlay
+        ) {
+
+          overlay.classList.remove(
+            "show"
+          );
+
+        }
+
+      }
+    );
+
+
+    /* =======================================================
+       MENU
+       ======================================================= */
+
+    menuButton.addEventListener(
+      "click",
+      () => {
+
+        sideMenu.classList.add(
+          "open"
+        );
+
+      }
+    );
+
+
+    menuClose.addEventListener(
+      "click",
+      () => {
+
+        sideMenu.classList.remove(
+          "open"
+        );
+
+      }
+    );
+
+
+    /* =======================================================
+       PERFIL
+       ======================================================= */
+
+    profileButton.addEventListener(
+      "click",
+      () => {
+
+        modalTitle.textContent =
+          "Meu perfil";
+
+
+        modalDescription.textContent =
+          "Área do perfil da empreendedora.";
+
+
+        modalImage.innerHTML = `
+
+          <div
+            style="
+              width:100%;
+              height:100%;
+
+              display:flex;
+
+              align-items:center;
+              justify-content:center;
+
+              font-size:70px;
+
+              color:#a06c78;
+            "
+          >
+
+            ♡
+
+          </div>
+
+        `;
+
+
+        overlay.classList.add(
+          "show"
+        );
+
+      }
+    );
+
+
+    /* =======================================================
+       TECLA ESC
+       ======================================================= */
+
+    document.addEventListener(
+      "keydown",
+      event => {
+
+        if (
+          event.key ===
+          "Escape"
+        ) {
+
+          overlay.classList.remove(
+            "show"
+          );
+
+          sideMenu.classList.remove(
+            "open"
+          );
+
+        }
+
+      }
+    );
+
+
+    /* =======================================================
+       PRIMEIRA RENDERIZAÇÃO
+       ======================================================= */
+
+    renderCards(
+      empreendedoras
+    );
+
+    function goHome() {
+  window.location.href = "Home.html"; 
+};
+
+  </script>
+
+</body>
+</html>

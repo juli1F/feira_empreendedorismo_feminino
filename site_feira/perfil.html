@@ -1,0 +1,2649 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Perfil — Elas Empreendedoras</title>
+
+  <style>
+
+    /* =========================================================
+       RESET
+    ========================================================= */
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html,
+    body {
+      width: 100%;
+      min-height: 100%;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        linear-gradient(
+          135deg,
+          #efa3c4 0%,
+          #f2abc9 32%,
+          #f7bdc7 58%,
+          #f9ccc0 78%,
+          #f8d7c3 100%
+        );
+
+      color: #66565c;
+      overflow-x: hidden;
+    }
+
+
+    /* =========================================================
+       VARIÁVEIS
+    ========================================================= */
+
+    :root {
+      --pink: #f3a6c5;
+      --pink-light: #ffc0c4;
+      --pink-soft: #fce5e4;
+
+      --purple: #c9a0cf;
+      --purple-dark: #a98bb1;
+
+      --cream: #fff0dc;
+      --cream-dark: #f9dfb5;
+
+      --white: #ffffff;
+
+      --text: #66565c;
+      --text-light: #8c7a80;
+
+      --border: #d3aeb0;
+
+      --green: #b5d5bd;
+    }
+
+
+    /* =========================================================
+       DECORAÇÕES DO FUNDO
+    ========================================================= */
+
+    body::before {
+      content: "";
+      position: fixed;
+
+      width: 650px;
+      height: 650px;
+
+      right: -230px;
+      top: -220px;
+
+      border: 50px solid rgba(231, 118, 166, 0.45);
+      border-radius: 50%;
+
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+
+      width: 650px;
+      height: 650px;
+
+      left: -500px;
+      bottom: -390px;
+
+      border: 50px solid rgba(255, 246, 197, 0.8);
+      border-radius: 50%;
+
+      pointer-events: none;
+      z-index: 0;
+    }
+
+
+    /* =========================================================
+       PÁGINA
+    ========================================================= */
+
+    .page {
+      width: calc(100% - 60px);
+      max-width: 1500px;
+
+      min-height: calc(100vh - 40px);
+
+      margin: 20px auto;
+
+      background: rgba(255, 247, 237, .94);
+
+      border-radius: 42px;
+
+      position: relative;
+      z-index: 1;
+
+      overflow: hidden;
+
+      box-shadow:
+        0 10px 40px rgba(120, 80, 90, .08);
+
+      animation:
+        pageEntrance .8s
+        cubic-bezier(.16, 1, .3, 1);
+    }
+
+
+    @keyframes pageEntrance {
+
+      from {
+        opacity: 0;
+        transform: translateY(35px) scale(.97);
+        filter: blur(4px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0);
+      }
+
+    }
+
+
+    /* =========================================================
+       HEADER
+    ========================================================= */
+
+    .header {
+      margin: 30px 35px 0;
+
+      min-height: 20px;
+
+      background: var(--cream-dark);
+
+      border-radius: 24px 24px 0 0;
+
+      padding: 12px 12px 0;
+    }
+
+
+    .topbar {
+      height:
+        70px;
+
+      width:
+        100%;
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      justify-content: center;
+
+      gap:
+        20px;
+    }
+
+
+    /* =========================================================
+       LOGO
+    ========================================================= */
+
+    .logo {
+      width: 70px;
+      height: 70px;
+
+      flex: 0 0 70px;
+
+      background: white;
+
+      border: 1px solid #b7b7b7;
+      border-radius: 50%;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      overflow: hidden;
+
+      transition: .2s;
+
+      cursor: pointer;
+    }
+
+    .logo:hover {
+      transform: scale(1.04);
+    }
+
+    .logo img {
+      width: 150%;
+      height: 150%;
+
+      object-fit: contain;
+    }
+
+
+    /* =========================================================
+       PESQUISA
+    ========================================================= */
+
+    .search {
+      height: 56px;
+      width: 540px;
+
+      flex: 0 1 540px;
+
+      background: white;
+
+      border: 1px solid #aaa;
+      border-radius: 13px;
+
+      display: flex;
+      align-items: center;
+
+      padding: 0 16px;
+
+      transition: .2s;
+    }
+
+    .search:focus-within {
+      border-color: #9d7b9f;
+
+      box-shadow:
+        0 0 0 3px rgba(201, 160, 207, .2);
+    }
+
+
+    .search-icon {
+      width: 21px;
+      height: 21px;
+
+      border: 3px solid #222;
+      border-radius: 50%;
+
+      position: relative;
+      flex-shrink: 0;
+    }
+
+    .search-icon::after {
+      content: "";
+
+      position: absolute;
+
+      width: 9px;
+      height: 3px;
+
+      background: #222;
+
+      transform: rotate(45deg);
+
+      right: -7px;
+      bottom: -4px;
+
+      border-radius: 2px;
+    }
+
+
+    .search input {
+      width: 100%;
+      height: 38px;
+
+      margin-left: 17px;
+
+      border: none;
+      outline: none;
+
+      font-size: 17px;
+      color: #555;
+
+      border-bottom: 1px solid #aaa;
+
+      background: transparent;
+    }
+
+
+    /* =========================================================
+       AÇÕES
+    ========================================================= */
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+
+      gap: 6px;
+
+      background: white;
+
+      border: 1px solid #aaa;
+      border-radius: 25px;
+
+      padding: 4px;
+    }
+
+    .action {
+      width: 50px;
+      height: 38px;
+
+      border: 1px solid #aaa;
+
+      background: #f7f7f7;
+
+      cursor: pointer;
+
+      transition: .2s;
+    }
+
+    .action:hover {
+      background: white;
+      transform: scale(1.04);
+    }
+
+
+    .menu-btn {
+      border-radius: 20px;
+    }
+
+    .menu-btn span,
+    .menu-btn::before,
+    .menu-btn::after {
+      content: "";
+
+      display: block;
+
+      width: 22px;
+      height: 3px;
+
+      background: #666;
+
+      margin: 4px auto;
+
+      border-radius: 2px;
+    }
+
+
+    /* =========================================================
+       PERFIL ICON
+    ========================================================= */
+
+    .profile-btn {
+      border-radius: 50%;
+      position: relative;
+    }
+
+    .profile-head {
+      width: 10px;
+      height: 10px;
+
+      border: 1px solid #666;
+      border-radius: 50%;
+
+      margin: 4px auto 2px;
+    }
+
+    .profile-body {
+      width: 20px;
+      height: 10px;
+
+      border: 1px solid #666;
+
+      border-radius: 12px 12px 5px 5px;
+
+      margin: auto;
+    }
+
+
+    /* =========================================================
+       CONTEÚDO
+    ========================================================= */
+
+    .content {
+      margin: 10px 35px 0;
+
+      background:
+        rgba(250, 225, 184, .82);
+
+      border-radius: 24px 24px 0 0;
+
+      padding: 28px;
+
+      min-height: calc(100vh - 225px);
+    }
+
+
+    /* =========================================================
+       BANNER DO PERFIL
+    ========================================================= */
+
+    .profile-banner {
+      height: 180px;
+
+      border-radius: 22px 22px 10px 10px;
+
+      background:
+        linear-gradient(
+          120deg,
+          #e99dbb,
+          #d5abd5,
+          #f4c6b7
+        );
+
+      position: relative;
+
+      overflow: hidden;
+
+      box-shadow:
+        inset 0 0 40px rgba(255,255,255,.15);
+    }
+
+
+    .profile-banner::before {
+      content: "♡";
+
+      position: absolute;
+
+      font-size: 180px;
+
+      color: rgba(255,255,255,.14);
+
+      right: 50px;
+      top: -45px;
+
+      transform: rotate(-15deg);
+    }
+
+    .profile-banner::after {
+      content: "";
+
+      position: absolute;
+
+      width: 300px;
+      height: 300px;
+
+      border: 25px solid rgba(255,255,255,.12);
+
+      border-radius: 50%;
+
+      left: -80px;
+      bottom: -220px;
+    }
+
+
+    /* =========================================================
+       INFORMAÇÕES PRINCIPAIS
+    ========================================================= */
+
+    .profile-main {
+      background: rgba(255,255,255,.9);
+
+      border-radius: 20px;
+
+      margin-top: -70px;
+
+      position: relative;
+      z-index: 2;
+
+      padding: 25px 30px 25px 180px;
+
+      min-height: 190px;
+
+      box-shadow:
+        0 8px 25px rgba(110, 70, 80, .08);
+    }
+
+
+    /* =========================================================
+       AVATAR
+    ========================================================= */
+
+    .avatar {
+      position: absolute;
+
+      left: 30px;
+      top: -55px;
+
+      width: 130px;
+      height: 130px;
+
+      border-radius: 50%;
+
+      background:
+        linear-gradient(
+          135deg,
+          #ffc0d0,
+          #c9a0cf
+        );
+
+      border: 7px solid #fff7ed;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      font-size: 48px;
+
+      color: white;
+
+      box-shadow:
+        0 5px 20px rgba(90,50,70,.18);
+
+      overflow: hidden;
+    }
+
+    .avatar img {
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
+
+      display: none;
+    }
+
+
+    /* =========================================================
+       NOME
+    ========================================================= */
+
+    .profile-name-row {
+      display: flex;
+
+      align-items: center;
+
+      gap: 10px;
+
+      flex-wrap: wrap;
+    }
+
+    .profile-name {
+      font-family: Georgia, serif;
+
+      font-size: 29px;
+
+      color: #805f6a;
+    }
+
+
+    .verified {
+      width: 20px;
+      height: 20px;
+
+      background: #c9a0cf;
+
+      color: white;
+
+      border-radius: 50%;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      font-size: 12px;
+    }
+
+
+    .username {
+      margin-top: 4px;
+
+      color: #a58d95;
+
+      font-size: 14px;
+    }
+
+
+    .category-tag {
+      display: inline-flex;
+
+      margin-top: 12px;
+
+      padding: 7px 14px;
+
+      border-radius: 20px;
+
+      background: #f8dbe5;
+
+      color: #906b77;
+
+      font-size: 13px;
+
+      font-weight: bold;
+    }
+
+
+    .bio {
+      max-width: 650px;
+
+      margin-top: 15px;
+
+      color: #75676c;
+
+      line-height: 1.6;
+
+      font-size: 14px;
+    }
+
+
+    /* =========================================================
+       BOTÕES DO PERFIL
+    ========================================================= */
+
+    .profile-buttons {
+      position: absolute;
+
+      right: 25px;
+      top: 25px;
+
+      display: flex;
+
+      gap: 8px;
+    }
+
+    .profile-button {
+      border: none;
+
+      padding: 11px 19px;
+
+      border-radius: 22px;
+
+      cursor: pointer;
+
+      font-weight: bold;
+
+      transition: .2s;
+    }
+
+    .profile-button:hover {
+      transform: translateY(-2px);
+    }
+
+
+    .follow-button {
+      background: #c9a0cf;
+      color: white;
+    }
+
+    .follow-button.following {
+      background: #b5d5bd;
+    }
+
+
+    .message-button {
+      background: #f7d5df;
+      color: #765967;
+    }
+
+
+    .more-button {
+      width: 42px;
+
+      padding: 0;
+
+      background: #f4e7dd;
+
+      color: #765967;
+
+      font-size: 18px;
+    }
+
+
+    /* =========================================================
+       ESTATÍSTICAS
+    ========================================================= */
+
+    .stats {
+      display: flex;
+
+      gap: 35px;
+
+      margin-top: 22px;
+    }
+
+    .stat {
+      text-align: left;
+    }
+
+    .stat strong {
+      display: block;
+
+      font-size: 19px;
+
+      color: #725966;
+    }
+
+    .stat span {
+      color: #9b858c;
+
+      font-size: 12px;
+    }
+
+
+    /* =========================================================
+       ABAS
+    ========================================================= */
+
+    .tabs {
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      gap: 60px;
+
+      margin-top: 25px;
+
+      border-bottom: 1px solid #d7bfc0;
+    }
+
+    .tab {
+      border: none;
+
+      background: transparent;
+
+      padding: 15px 10px;
+
+      color: #9a8088;
+
+      font-size: 14px;
+
+      font-weight: bold;
+
+      cursor: pointer;
+
+      position: relative;
+    }
+
+    .tab.active {
+      color: #795c68;
+    }
+
+    .tab.active::after {
+      content: "";
+
+      position: absolute;
+
+      bottom: -1px;
+
+      left: 0;
+      right: 0;
+
+      height: 3px;
+
+      background: #c9a0cf;
+
+      border-radius: 4px 4px 0 0;
+    }
+
+
+    /* =========================================================
+       CONTEÚDO DAS ABAS
+    ========================================================= */
+
+    .tab-content {
+      display: none;
+
+      padding-top: 25px;
+
+      animation: tabIn .35s ease;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+
+    @keyframes tabIn {
+
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+    }
+
+
+    /* =========================================================
+       PUBLICAÇÕES
+    ========================================================= */
+
+    .posts-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(4, 1fr);
+
+      gap: 18px;
+    }
+
+
+    .post {
+      aspect-ratio: 1 / 1;
+
+      border-radius: 18px;
+
+      overflow: hidden;
+
+      cursor: pointer;
+
+      position: relative;
+
+      background:
+        linear-gradient(
+          135deg,
+          #f5b5c8,
+          #c7a5ce
+        );
+
+      transition: .25s;
+    }
+
+    .post:nth-child(2) {
+      background:
+        linear-gradient(
+          135deg,
+          #f7d4ae,
+          #edb0bb
+        );
+    }
+
+    .post:nth-child(3) {
+      background:
+        linear-gradient(
+          135deg,
+          #d4b6d8,
+          #f4c7c4
+        );
+    }
+
+    .post:nth-child(4) {
+      background:
+        linear-gradient(
+          135deg,
+          #f3c7aa,
+          #dba9c5
+        );
+    }
+
+    .post:nth-child(5) {
+      background:
+        linear-gradient(
+          135deg,
+          #e8b9cb,
+          #f6d8ad
+        );
+    }
+
+    .post:nth-child(6) {
+      background:
+        linear-gradient(
+          135deg,
+          #c8afd1,
+          #efbdc5
+        );
+    }
+
+    .post:nth-child(7) {
+      background:
+        linear-gradient(
+          135deg,
+          #efc3b7,
+          #d5acd0
+        );
+    }
+
+    .post:nth-child(8) {
+      background:
+        linear-gradient(
+          135deg,
+          #f5d3aa,
+          #edacc3
+        );
+    }
+
+
+    .post:hover {
+      transform: translateY(-5px) scale(1.015);
+
+      box-shadow:
+        0 10px 25px rgba(100,70,80,.15);
+    }
+
+
+    .post-content {
+      width: 100%;
+      height: 100%;
+
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      font-family: Georgia, serif;
+
+      font-size: 48px;
+
+      color: rgba(255,255,255,.75);
+    }
+
+
+    .post-overlay {
+      position: absolute;
+
+      inset: 0;
+
+      background: rgba(80,50,70,.45);
+
+      opacity: 0;
+
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      color: white;
+
+      font-size: 14px;
+
+      transition: .2s;
+    }
+
+    .post:hover .post-overlay {
+      opacity: 1;
+    }
+
+
+    /* =========================================================
+       PRODUTOS
+    ========================================================= */
+
+    .products-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap: 22px;
+    }
+
+
+    .product-card {
+      background: rgba(255,255,255,.85);
+
+      border-radius: 20px;
+
+      padding: 12px;
+
+      border: 1px solid rgba(180,140,150,.3);
+
+      transition: .25s;
+    }
+
+    .product-card:hover {
+      transform: translateY(-5px);
+
+      box-shadow:
+        0 10px 25px rgba(100,70,80,.1);
+    }
+
+
+    .product-image {
+      height: 180px;
+
+      border-radius: 15px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #f5b4c9,
+          #d0acd2
+        );
+
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      font-size: 55px;
+
+      color: rgba(255,255,255,.7);
+    }
+
+
+    .product-card:nth-child(2) .product-image {
+      background:
+        linear-gradient(
+          135deg,
+          #f5d3ad,
+          #efb6c3
+        );
+    }
+
+    .product-card:nth-child(3) .product-image {
+      background:
+        linear-gradient(
+          135deg,
+          #d1b5d3,
+          #f3c7bd
+        );
+    }
+
+
+    .product-info {
+      padding: 15px 5px 7px;
+    }
+
+
+    .product-name {
+      color: #765967;
+
+      font-family: Georgia, serif;
+
+      font-size: 18px;
+    }
+
+
+    .product-description {
+      color: #9a858c;
+
+      font-size: 13px;
+
+      margin-top: 6px;
+
+      line-height: 1.4;
+    }
+
+
+    .product-bottom {
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: center;
+
+      margin-top: 13px;
+    }
+
+
+    .price {
+      font-weight: bold;
+
+      color: #906579;
+    }
+
+
+    .product-action {
+      border: none;
+
+      background: #c9a0cf;
+
+      color: white;
+
+      padding: 7px 13px;
+
+      border-radius: 15px;
+
+      cursor: pointer;
+    }
+
+
+    /* =========================================================
+       SOBRE
+    ========================================================= */
+
+    .about {
+      display: grid;
+
+      grid-template-columns:
+        1.3fr .7fr;
+
+      gap: 25px;
+    }
+
+
+    .about-card {
+      background: rgba(255,255,255,.82);
+
+      border-radius: 20px;
+
+      padding: 25px;
+
+      border: 1px solid rgba(180,140,150,.3);
+    }
+
+
+    .about-card h2 {
+      font-family: Georgia, serif;
+
+      color: #795c68;
+
+      margin-bottom: 15px;
+    }
+
+
+    .about-card p {
+      color: #77676d;
+
+      line-height: 1.7;
+
+      font-size: 14px;
+    }
+
+
+    .info-list {
+      list-style: none;
+    }
+
+
+    .info-list li {
+      display: flex;
+
+      gap: 10px;
+
+      padding: 12px 0;
+
+      border-bottom: 1px solid #ead9d5;
+
+      font-size: 14px;
+
+      color: #806d73;
+    }
+
+
+    .info-list li:last-child {
+      border-bottom: none;
+    }
+
+
+    .info-icon {
+      width: 25px;
+
+      text-align: center;
+    }
+
+
+    /* =========================================================
+       MODAL
+    ========================================================= */
+
+    .modal-overlay {
+      position: fixed;
+
+      inset: 0;
+
+      background: rgba(70,45,60,.4);
+
+      backdrop-filter: blur(5px);
+
+      z-index: 100;
+
+      display: none;
+
+      align-items: center;
+      justify-content: center;
+
+      padding: 20px;
+    }
+
+    .modal-overlay.show {
+      display: flex;
+    }
+
+
+    .modal {
+      width: min(500px, 100%);
+
+      background: #fff7ed;
+
+      border-radius: 25px;
+
+      padding: 30px;
+
+      position: relative;
+
+      box-shadow:
+        0 20px 60px rgba(50,30,40,.25);
+
+      animation:
+        modalIn .3s ease;
+    }
+
+
+    @keyframes modalIn {
+
+      from {
+        opacity: 0;
+        transform: scale(.9);
+      }
+
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+    }
+
+
+    .modal-close {
+      position: absolute;
+
+      top: 15px;
+      right: 15px;
+
+      width: 34px;
+      height: 34px;
+
+      border: none;
+
+      border-radius: 50%;
+
+      background: #f5b3c4;
+
+      color: #765967;
+
+      cursor: pointer;
+
+      font-size: 18px;
+    }
+
+
+    .modal h2 {
+      font-family: Georgia, serif;
+
+      color: #805f6a;
+
+      margin-bottom: 12px;
+    }
+
+
+    .modal p {
+      color: #796b70;
+
+      line-height: 1.6;
+    }
+
+
+    /* =========================================================
+       MENU LATERAL
+    ========================================================= */
+
+    .side-menu {
+      position: fixed;
+
+      top: 0;
+      left: -330px;
+
+      width: 310px;
+      height: 100vh;
+
+      background: #fff5e8;
+
+      z-index: 200;
+
+      padding: 30px;
+
+      box-shadow:
+        10px 0 30px rgba(0,0,0,.12);
+
+      transition: left .3s ease;
+    }
+
+
+    .side-menu.open {
+      left: 0;
+    }
+
+
+    .side-menu h2 {
+      color: #9d7183;
+
+      font-family: Georgia, serif;
+
+      margin-bottom: 30px;
+    }
+
+
+    .menu-close {
+      position: absolute;
+
+      right: 20px;
+      top: 15px;
+
+      border: none;
+
+      background: transparent;
+
+      font-size: 25px;
+
+      color: #765967;
+
+      cursor: pointer;
+    }
+
+
+    .side-menu button.menu-item {
+      width: 100%;
+
+      border: none;
+
+      padding: 15px;
+
+      margin-bottom: 10px;
+
+      border-radius: 12px;
+
+      background: #f5d4dd;
+
+      color: #765968;
+
+      cursor: pointer;
+
+      text-align: left;
+
+      font-size: 15px;
+
+      transition: .2s;
+    }
+
+
+    .side-menu button.menu-item:hover {
+      background: #e9bccc;
+
+      transform: translateX(4px);
+    }
+
+
+    /* =========================================================
+       TOAST
+    ========================================================= */
+
+    .toast {
+      position: fixed;
+
+      left: 50%;
+      bottom: 30px;
+
+      transform:
+        translate(-50%, 100px);
+
+      background: #765967;
+
+      color: white;
+
+      padding: 13px 22px;
+
+      border-radius: 25px;
+
+      z-index: 500;
+
+      opacity: 0;
+
+      transition: .3s;
+
+      box-shadow:
+        0 8px 25px rgba(50,30,40,.2);
+    }
+
+
+    .toast.show {
+      opacity: 1;
+
+      transform:
+        translate(-50%, 0);
+    }
+
+
+    /* =========================================================
+       TABLET
+    ========================================================= */
+
+    @media (max-width: 950px) {
+
+      .page {
+        width: calc(100% - 30px);
+      }
+
+      .header,
+      .content {
+        margin-left: 20px;
+        margin-right: 20px;
+      }
+
+      .search {
+        width: 420px;
+      }
+
+      .posts-grid {
+        grid-template-columns:
+          repeat(3, 1fr);
+      }
+
+      .products-grid {
+        grid-template-columns:
+          repeat(2, 1fr);
+      }
+
+      .about {
+        grid-template-columns: 1fr;
+      }
+
+      .profile-buttons {
+        position: static;
+
+        margin-top: 20px;
+      }
+
+      .profile-main {
+        padding-right: 30px;
+      }
+
+    }
+
+
+    /* =========================================================
+       CELULAR
+    ========================================================= */
+
+    @media (max-width: 650px) {
+
+      body {
+        overflow-x: hidden;
+      }
+
+      .page {
+        width: 100%;
+
+        min-height: 100vh;
+
+        margin: 0;
+
+        border-radius: 0;
+      }
+
+      .header {
+        margin: 15px 15px 0;
+
+        padding: 8px;
+
+        min-height: 120px;
+      }
+
+      .topbar {
+        height: 60px;
+
+        gap: 8px;
+      }
+
+      .logo {
+        width: 52px;
+        height: 52px;
+
+        flex-basis: 52px;
+      }
+
+      .search {
+        height: 46px;
+
+        flex: 1;
+
+        min-width: 0;
+
+        padding: 0 10px;
+      }
+
+      .search input {
+        font-size: 14px;
+
+        margin-left: 10px;
+      }
+
+      .header-actions {
+        display: none;
+      }
+
+      .content {
+        margin: 10px 15px 0;
+
+        padding: 15px;
+
+        border-radius: 20px 20px 0 0;
+      }
+
+      .profile-banner {
+        height: 135px;
+      }
+
+      .profile-main {
+        margin-top: -50px;
+
+        padding: 70px 18px 20px;
+
+        text-align: center;
+      }
+
+      .avatar {
+        width: 100px;
+        height: 100px;
+
+        left: 50%;
+
+        top: -50px;
+
+        transform: translateX(-50%);
+      }
+
+      .profile-name-row {
+        justify-content: center;
+      }
+
+      .profile-name {
+        font-size: 24px;
+      }
+
+      .bio {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .profile-buttons {
+        justify-content: center;
+
+        flex-wrap: wrap;
+      }
+
+      .stats {
+        justify-content: center;
+
+        gap: 25px;
+      }
+
+      .tabs {
+        gap: 5px;
+
+        justify-content: space-around;
+      }
+
+      .tab {
+        font-size: 12px;
+      }
+
+      .posts-grid {
+        grid-template-columns:
+          repeat(2, 1fr);
+
+        gap: 10px;
+      }
+
+      .products-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .product-image {
+        height: 200px;
+      }
+
+    }
+
+
+    /* =========================================================
+       ACESSIBILIDADE
+    ========================================================= */
+
+    button:focus-visible,
+    input:focus-visible {
+      outline: 3px solid rgba(157,123,159,.35);
+      outline-offset: 2px;
+    }
+
+
+    @media (prefers-reduced-motion: reduce) {
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+      }
+
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+
+  <!-- =======================================================
+       PÁGINA
+  ======================================================= -->
+
+  <main class="page">
+
+
+    <!-- =====================================================
+         HEADER
+    ===================================================== -->
+
+    <header class="header">
+
+      <div class="topbar">
+
+
+        <!-- LOGO -->
+
+        <div
+          class="logo"
+          onclick="goHome()"
+          title="Voltar para o início"
+        >
+
+          <img
+            src="logo.png"
+            alt="Elas Empreendedoras"
+            onerror="this.style.display='none'"
+          >
+        </div>
+
+
+        <!-- PESQUISA -->
+
+        <div class="search">
+
+          <div class="search-icon"></div>
+
+          <input
+            id="searchInput"
+            type="text"
+            placeholder="Buscar empreendedoras..."
+            autocomplete="off"
+          >
+
+        </div>
+
+
+        <!-- AÇÕES -->
+
+        <div class="header-actions">
+
+          <button
+            class="action menu-btn"
+            id="menuButton"
+            aria-label="Abrir menu"
+          >
+            <span></span>
+          </button>
+
+
+          <button
+            class="action profile-btn"
+            id="profileButton"
+            aria-label="Perfil"
+          >
+
+            <div class="profile-head"></div>
+
+            <div class="profile-body"></div>
+
+          </button>
+
+        </div>
+
+      </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         CONTEÚDO
+    ===================================================== -->
+
+    <section class="content">
+
+
+      <!-- ===================================================
+           BANNER
+      =================================================== -->
+
+      <div class="profile-banner"></div>
+
+
+      <!-- ===================================================
+           PERFIL
+      =================================================== -->
+
+      <section class="profile-main">
+
+
+        <!-- AVATAR -->
+
+        <div class="avatar">
+
+          <span id="avatarLetter">A</span>
+
+          <!--
+          Caso queira colocar foto:
+
+          <img src="foto.jpg" alt="Ana Martins">
+          -->
+
+        </div>
+
+
+        <!-- NOME -->
+
+        <div class="profile-name-row">
+
+          <h1 class="profile-name">
+            Ana Martins
+          </h1>
+
+          <span
+            class="verified"
+            title="Perfil verificado"
+          >
+            ✓
+          </span>
+
+        </div>
+
+
+        <div class="username">
+          @anamartins
+        </div>
+
+
+        <span class="category-tag">
+          ✦ Moda & Empreendedorismo
+        </span>
+
+
+        <p class="bio">
+          Criadora de moda feminina e apaixonada por transformar
+          ideias em negócios. Compartilho minha jornada,
+          inspirações e um pouco do meu dia a dia como empreendedora.
+        </p>
+
+
+        <!-- ESTATÍSTICAS -->
+
+        <div class="stats">
+
+          <div class="stat">
+            <strong>48</strong>
+            <span>Publicações</span>
+          </div>
+
+          <div class="stat">
+            <strong>2,8 mil</strong>
+            <span>Seguidores</span>
+          </div>
+
+          <div class="stat">
+            <strong>326</strong>
+            <span>Seguindo</span>
+          </div>
+
+        </div>
+
+
+        <!-- BOTÕES -->
+
+        <div class="profile-buttons">
+
+          <button
+            class="profile-button follow-button"
+            id="followButton"
+          >
+            Seguir
+          </button>
+
+          <button
+            class="profile-button message-button"
+            id="messageButton"
+          >
+            Mensagem
+          </button>
+
+          <button
+            class="profile-button more-button"
+            id="moreButton"
+            aria-label="Mais opções"
+          >
+            ⋯
+          </button>
+
+        </div>
+
+      </section>
+
+
+      <!-- ===================================================
+           ABAS
+      =================================================== -->
+
+      <nav class="tabs">
+
+        <button
+          class="tab active"
+          data-tab="posts"
+        >
+          Publicações
+        </button>
+
+        <button
+          class="tab"
+          data-tab="products"
+        >
+          Produtos
+        </button>
+
+        <button
+          class="tab"
+          data-tab="about"
+        >
+          Sobre
+        </button>
+
+      </nav>
+
+
+      <!-- ===================================================
+           PUBLICAÇÕES
+      =================================================== -->
+
+      <section
+        class="tab-content active"
+        id="posts"
+      >
+
+        <div class="posts-grid">
+
+
+          <article class="post">
+
+            <div class="post-content">
+              ✿
+            </div>
+
+            <div class="post-overlay">
+              Ver publicação
+            </div>
+
+          </article>
+
+
+          <article class="post">
+
+            <div class="post-content">
+              ♡
+            </div>
+
+            <div class="post-overlay">
+              Ver publicação
+            </div>
+
+          </article>
+
+
+          <article class="post">
+
+            <div class="post-content">
+              ✧
+            </div>
+
+            <div class="post-overlay">
+              Ver publicação
+            </div>
+
+          </article>
+
+
+          <article class="post">
+
+            <div class="post-content">
+              ❀
+            </div>
+
+            <div class="post-overlay">
+              Ver publicação
+            </div>
+
+          </article>
+
+
+          <article class="post">
+
+            <div class="post-content">
+              ♡
+            </div>
+
+            <div class="post-overlay">
+              Ver publicação
+            </div>
+
+          </article>
+
+
+          <article class="post">
+
+            <div class="post-content">
+              ✿
+            </div>
+
+            <div class="post-overlay">
+              Ver publicação
+            </div>
+
+          </article>
+
+
+          <article class="post">
+
+            <div class="post-content">
+              ✧
+            </div>
+
+            <div class="post-overlay">
+              Ver publicação
+            </div>
+
+          </article>
+
+
+          <article class="post">
+
+            <div class="post-content">
+              ❀
+            </div>
+
+            <div class="post-overlay">
+              Ver publicação
+            </div>
+
+          </article>
+
+        </div>
+
+      </section>
+
+
+      <!-- ===================================================
+           PRODUTOS
+      ===================================================== -->
+
+      <section
+        class="tab-content"
+        id="products"
+      >
+
+        <div class="products-grid">
+
+
+          <article class="product-card">
+
+            <div class="product-image">
+              ♡
+            </div>
+
+            <div class="product-info">
+
+              <h2 class="product-name">
+                Coleção Primavera
+              </h2>
+
+              <p class="product-description">
+                Peças leves e delicadas para o dia a dia.
+              </p>
+
+              <div class="product-bottom">
+
+                <span class="price">
+                  A partir de R$ 89
+                </span>
+
+                <button
+                  class="product-action"
+                  onclick="showToast('Produto selecionado!')"
+                >
+                  Ver
+                </button>
+
+              </div>
+
+            </div>
+
+          </article>
+
+
+          <article class="product-card">
+
+            <div class="product-image">
+              ✿
+            </div>
+
+            <div class="product-info">
+
+              <h2 class="product-name">
+                Consultoria de Estilo
+              </h2>
+
+              <p class="product-description">
+                Atendimento personalizado para encontrar
+                seu próprio estilo.
+              </p>
+
+              <div class="product-bottom">
+
+                <span class="price">
+                  R$ 150
+                </span>
+
+                <button
+                  class="product-action"
+                  onclick="showToast('Produto selecionado!')"
+                >
+                  Ver
+                </button>
+
+              </div>
+
+            </div>
+
+          </article>
+
+
+          <article class="product-card">
+
+            <div class="product-image">
+              ✧
+            </div>
+
+            <div class="product-info">
+
+              <h2 class="product-name">
+                Guia de Moda
+              </h2>
+
+              <p class="product-description">
+                E-book com dicas para montar combinações
+                versáteis e criativas.
+              </p>
+
+              <div class="product-bottom">
+
+                <span class="price">
+                  R$ 39
+                </span>
+
+                <button
+                  class="product-action"
+                  onclick="showToast('Produto selecionado!')"
+                >
+                  Ver
+                </button>
+
+              </div>
+
+            </div>
+
+          </article>
+
+
+        </div>
+
+      </section>
+
+
+      <!-- ===================================================
+           SOBRE
+      ===================================================== -->
+
+      <section
+        class="tab-content"
+        id="about"
+      >
+
+        <div class="about">
+
+
+          <article class="about-card">
+
+            <h2>
+              Sobre Ana
+            </h2>
+
+            <p>
+              Sou empreendedora e apaixonada por moda.
+              Comecei meu negócio criando pequenas peças
+              para amigas e familiares e, aos poucos,
+              transformei esse hobby em uma marca.
+            </p>
+
+            <br>
+
+            <p>
+              Hoje compartilho minha experiência com outras
+              mulheres que também desejam começar seus próprios
+              negócios. Acredito que empreender não precisa
+              significar fazer tudo sozinha.
+            </p>
+
+            <br>
+
+            <p>
+              Por aqui você encontra minhas criações,
+              bastidores, dicas e novidades da marca.
+            </p>
+
+          </article>
+
+
+          <article class="about-card">
+
+            <h2>
+              Informações
+            </h2>
+
+            <ul class="info-list">
+
+              <li>
+                <span class="info-icon">📍</span>
+                São Paulo, SP
+              </li>
+
+              <li>
+                <span class="info-icon">♡</span>
+                Moda feminina
+              </li>
+
+              <li>
+                <span class="info-icon">✉</span>
+                contato@anamartins.com
+              </li>
+
+              <li>
+                <span class="info-icon">◎</span>
+                @anamartins
+              </li>
+
+              <li>
+                <span class="info-icon">◷</span>
+                Desde 2022
+              </li>
+
+            </ul>
+
+          </article>
+
+
+        </div>
+
+      </section>
+
+
+    </section>
+
+  </main>
+
+
+  <!-- =======================================================
+       MENU LATERAL
+  ======================================================= -->
+
+  <aside
+    class="side-menu"
+    id="sideMenu"
+  >
+
+    <button
+      class="menu-close"
+      id="menuClose"
+    >
+      ×
+    </button>
+
+    <h2>
+      Menu
+    </h2>
+
+    <button
+      class="menu-item"
+      onclick="goHome()"
+    >
+      Início
+    </button>
+
+    <button
+      class="menu-item"
+      onclick="showToast('Empreendedoras')"
+    >
+      Empreendedoras
+    </button>
+
+    <button
+      class="menu-item"
+      onclick="showToast('Categorias')"
+    >
+      Categorias
+    </button>
+
+    <button
+      class="menu-item"
+      onclick="showToast('Favoritos')"
+    >
+      Favoritos
+    </button>
+
+    <button
+      class="menu-item"
+      onclick="showToast('Sobre nós')"
+    >
+      Sobre nós
+    </button>
+
+  </aside>
+
+
+  <!-- =======================================================
+       MODAL
+  ======================================================= -->
+
+  <div
+    class="modal-overlay"
+    id="modalOverlay"
+  >
+
+    <div class="modal">
+
+      <button
+        class="modal-close"
+        id="modalClose"
+      >
+        ×
+      </button>
+
+      <h2 id="modalTitle">
+        Mensagem
+      </h2>
+
+      <p id="modalText">
+        Conteúdo.
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <!-- =======================================================
+       TOAST
+  ======================================================= -->
+
+  <div
+    class="toast"
+    id="toast"
+  >
+    Ação realizada!
+  </div>
+
+
+  <!-- =======================================================
+       JAVASCRIPT
+  ======================================================= -->
+
+  <script>
+
+
+    /* =======================================================
+       ELEMENTOS
+    ======================================================= */
+
+    const tabs =
+      document.querySelectorAll(".tab");
+
+    const tabContents =
+      document.querySelectorAll(".tab-content");
+
+    const followButton =
+      document.getElementById("followButton");
+
+    const messageButton =
+      document.getElementById("messageButton");
+
+    const moreButton =
+      document.getElementById("moreButton");
+
+    const menuButton =
+      document.getElementById("menuButton");
+
+    const menuClose =
+      document.getElementById("menuClose");
+
+    const sideMenu =
+      document.getElementById("sideMenu");
+
+    const modalOverlay =
+      document.getElementById("modalOverlay");
+
+    const modalClose =
+      document.getElementById("modalClose");
+
+    const modalTitle =
+      document.getElementById("modalTitle");
+
+    const modalText =
+      document.getElementById("modalText");
+
+    const toast =
+      document.getElementById("toast");
+
+    const searchInput =
+      document.getElementById("searchInput");
+
+
+    /* =======================================================
+       TROCAR ABAS
+    ======================================================= */
+
+    tabs.forEach(tab => {
+
+      tab.addEventListener("click", () => {
+
+        const target =
+          tab.dataset.tab;
+
+
+        tabs.forEach(item => {
+
+          item.classList.remove("active");
+
+        });
+
+
+        tabContents.forEach(content => {
+
+          content.classList.remove("active");
+
+        });
+
+
+        tab.classList.add("active");
+
+        document
+          .getElementById(target)
+          .classList.add("active");
+
+      });
+
+    });
+
+
+    /* =======================================================
+       SEGUIR
+    ======================================================= */
+
+    let following = false;
+
+
+    followButton.addEventListener("click", () => {
+
+      following = !following;
+
+
+      if (following) {
+
+        followButton.textContent =
+          "Seguindo";
+
+        followButton.classList.add(
+          "following"
+        );
+
+        showToast(
+          "Você está seguindo Ana Martins ♡"
+        );
+
+      } else {
+
+        followButton.textContent =
+          "Seguir";
+
+        followButton.classList.remove(
+          "following"
+        );
+
+        showToast(
+          "Você deixou de seguir Ana."
+        );
+
+      }
+
+    });
+
+
+    /* =======================================================
+       MENSAGEM
+    ======================================================= */
+
+    messageButton.addEventListener("click", () => {
+
+      openModal(
+        "Enviar mensagem",
+        "Aqui você poderá iniciar uma conversa com Ana Martins."
+      );
+
+    });
+
+
+    /* =======================================================
+       MAIS OPÇÕES
+    ======================================================= */
+
+    moreButton.addEventListener("click", () => {
+
+      openModal(
+        "Mais opções",
+        "Aqui poderão ficar opções como compartilhar perfil, denunciar ou copiar o link."
+      );
+
+    });
+
+
+    /* =======================================================
+       MENU
+    ======================================================= */
+
+    menuButton.addEventListener("click", () => {
+
+      sideMenu.classList.add("open");
+
+    });
+
+
+    menuClose.addEventListener("click", () => {
+
+      sideMenu.classList.remove("open");
+
+    });
+
+
+    /* =======================================================
+       MODAL
+    ======================================================= */
+
+    function openModal(title, text) {
+
+      modalTitle.textContent = title;
+
+      modalText.textContent = text;
+
+      modalOverlay.classList.add("show");
+
+    }
+
+
+    modalClose.addEventListener("click", () => {
+
+      modalOverlay.classList.remove("show");
+
+    });
+
+
+    modalOverlay.addEventListener("click", event => {
+
+      if (event.target === modalOverlay) {
+
+        modalOverlay.classList.remove("show");
+
+      }
+
+    });
+
+
+    /* =======================================================
+       TOAST
+    ======================================================= */
+
+    let toastTimeout;
+
+
+    function showToast(message) {
+
+      clearTimeout(toastTimeout);
+
+      toast.textContent = message;
+
+      toast.classList.add("show");
+
+
+      toastTimeout =
+        setTimeout(() => {
+
+          toast.classList.remove("show");
+
+        }, 2500);
+
+    }
+
+
+    /* =======================================================
+       PESQUISA
+    ======================================================= */
+
+    searchInput.addEventListener(
+      "keydown",
+      event => {
+
+        if (event.key === "Enter") {
+
+          const value =
+            searchInput.value.trim();
+
+
+          if (!value) {
+
+            showToast(
+              "Digite algo para pesquisar."
+            );
+
+            return;
+
+          }
+
+
+          showToast(
+            `Pesquisando por "${value}"...`
+          );
+
+        }
+
+      }
+    );
+
+
+    /* =======================================================
+       PUBLICAÇÕES
+    ======================================================= */
+
+    document
+      .querySelectorAll(".post")
+      .forEach((post, index) => {
+
+        post.addEventListener("click", () => {
+
+          openModal(
+            `Publicação ${index + 1}`,
+            "Aqui aparecerá a publicação completa da empreendedora."
+          );
+
+        });
+
+      });
+
+
+    /* =======================================================
+       VOLTAR PARA HOME
+    ======================================================= */
+
+    function goHome() {
+
+      /*
+        Se sua Home se chamar index.html,
+        isso já funcionará normalmente.
+      */
+
+      window.location.href = "index.html";
+
+    }
+
+
+    /* =======================================================
+       ESC
+    ======================================================= */
+
+    document.addEventListener(
+      "keydown",
+      event => {
+
+        if (event.key === "Escape") {
+
+          modalOverlay.classList.remove("show");
+
+          sideMenu.classList.remove("open");
+
+        }
+
+      }
+    );
+
+
+    /* =======================================================
+       CLIQUE NO PERFIL DO HEADER
+    ======================================================= */
+
+    document
+      .getElementById("profileButton")
+      .addEventListener("click", () => {
+
+        showToast(
+          "Você já está no seu perfil ♡"
+        );
+
+      });
+
+      function goHome() {
+        window.location.href = "Home.html"; 
+        };
+
+
+  </script>
+
+</body>
+</html>
