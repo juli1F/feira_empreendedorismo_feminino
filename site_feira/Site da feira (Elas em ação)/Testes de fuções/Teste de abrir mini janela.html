@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Exemplo de Mini Janela</title>
+    <style>
+      /* Estilo opcional para deixar a mini janela mais bonita */
+      dialog {
+        border: none;
+        border-radius: 8px;
+        padding: 20px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      }
+    </style>
+</head>
+<body>
+
+    <!-- Botão para abrir a janela -->
+    <button onclick="document.getElementById('minhaJanela').showModal()">
+        Abrir Janela
+    </button>
+
+    <!-- A mini janela -->
+    <dialog id="minhaJanela">
+        <h2>Aviso</h2>
+        <p>Esta é uma mini janela criada com HTML.</p>
+        
+        <!-- Botão para fechar a janela -->
+        <button onclick="document.getElementById('minhaJanela').close()">
+            Fechar
+        </button>
+    </dialog>
+
+</body>
+</html>

@@ -1,0 +1,71 @@
+body {
+                 background: linear-gradient(to right, #F2B2CF, #FBDCC2);
+  height: 100vh;
+}
+
+.caixasrc {
+    width: 2060px;
+    height: 1000px;
+    border-radius: 17px;
+    background-color: #ffffff;
+    position: relative;
+    left: 20px;
+    bottom: 0px;
+    opacity: 80%;
+}
+
+
+
+.fundo_bege {
+    width: 2000px;
+    height: 300px;
+    border-radius: 17px;
+    background-color: #FCE4BB;
+    position: relative;
+    left: 50px;
+    bottom: 960px;
+            
+}
+.fundo_bege2 {
+    width: 2000px;
+    height: 550px;
+    border-radius: 17px;
+    background-color: #FCE4BB;
+    position: relative;
+    left: 50px;
+    bottom: 1080px;
+            
+}
+.botoes_de_cima {
+    display: flex;
+    overflow-x: auto;
+    gap: 50px;
+    padding: 10px;
+    white-space: nowrap;
+    width: 100%;
+    max-width: 2000px; 
+    background-color: transparent;
+    border-radius: 17px;
+    position: relative;
+    left: 330px;
+    bottom: 1165px;
+}
+
+.botoes_de_cima button {
+    flex: 0 0 auto;
+    padding: 45px 45px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #ffffff;
+    color: white;
+    border: none;
+    border-radius: 17px;
+}
+
+.barra_de_pesquisa {
+    position: relative;
+    height: 50px;
+    width: 150px;
+    border-radius: 30px;
+    border: transparent;
+}

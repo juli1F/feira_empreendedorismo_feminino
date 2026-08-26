@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Botões com Scroll Horizontal</title>
+  <style>
+    /* Container que ativa a rolagem horizontal */
+    .scroll-container {
+      display: flex;
+      overflow-x: auto;
+      gap: 10px; /* Espaço entre os botões */
+      padding: 10px;
+      white-space: nowrap;
+      width: 100%;
+      max-width: 600px; /* Largura máxima da área de scroll */
+      background-color: #f1f1f1;
+      border-radius: 8px;
+    }
+
+    /* Estilo dos botões */
+    .scroll-container button {
+      flex: 0 0 auto; /* Impede que os botões encolham */
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 4px;
+    }
+
+    .scroll-container button:hover {
+      background-color: #0056b3;
+    }
+
+    /* Opcional: Esconder a barra de rolagem no Chrome/Safari/Edge */
+    .scroll-container::-webkit-scrollbar {
+      height: 8px;
+    }
+    .scroll-container::-webkit-scrollbar-thumb {
+      background: #ccc;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="scroll-container">
+    <button>Botão 1</button>
+    <button>Botão 2</button>
+    <button>Botão 3</button>
+    <button>Botão 4</button>
+    <button>Botão 5</button>
+    <button>Botão 6</button>
+    <button>Botão 7</button>
+    <button>Botão 8</button>
+  </div>
+
+</body>
+</html>
