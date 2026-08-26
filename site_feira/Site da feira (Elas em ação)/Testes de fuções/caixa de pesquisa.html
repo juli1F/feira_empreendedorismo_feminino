@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="CaixaDePesquisa">
+  <input type="text" placeholder="Pesquisar..." class="TextoDePesquisa">
+  <button type="submit" class="Icon">🔍</button>
+</div>
+ <style>
+    .CaixaDePesquisa {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 400px;
+  background-color: #f1f3f5;
+  border-radius: 50px;
+  padding: 8px 16px;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.CaixaDePesquisa:focus-within {
+  background-color: #fff;
+  border-color: #4c6ef5;
+  box-shadow: 0 0 8px rgba(76, 110, 245, 0.2);
+}
+
+.TextoDePesquisa {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 16px;
+  color: #495057;
+}
+
+.TextoDePesquisa::placeholder {
+  color: #adb5bd;
+}
+
+.Icon {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+ </style>
+</body>
+</html>
