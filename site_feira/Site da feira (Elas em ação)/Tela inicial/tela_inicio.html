@@ -2,11 +2,10 @@
     <head>Inicío</head>
 
     <body>
-        <div class="logo"><img src="Logo"></div> <!--Colcar a logo man-->
+        <div class="logo"><img src="site_feira/logo.png"></div> <!--Colcar a logo man-->
 
         <div class="caixasrc"></div>
         <div class="fundo_bege"></div>
-        
 
         <div class="CaixaDePesquisa">
             <input type="text" placeholder="Buscar pequenas oportunidades..." class="TextoDePesquisa" required> <!--Se fizer uma pagina de pesquisa, coloque um <Form> e coloca um Get no form-->
@@ -19,8 +18,6 @@
         <div class="peril">
             <a Href="Pagina do peril" img src="Foto de perfil" type="Button"> Perfil </a> <!--Fazer a foto trocar com base no que o usuario escolher com o JavaScript-->
         </div>
-
-        
 
         <div class="botoes_de_cima">
             <button img src="Imagem do que for" type="button" href="Link de onde levar">1</button> <!--Se isso levar a outra pagina, transforme em uma ancôra (<a>) isso para os outros botôes também, se for mudar suas funções -->
@@ -35,6 +32,7 @@
             <button img src="Imagem do que for" type="button" href="Link de onde levar">10</button>
         </div>
         <div class="fundo_bege2"></div>  <!--caixas de dcoração para CSS-->
+
         <div class="cards">
             <button img src="Imagem do que for" type="button" href="Link de onde levar">1</button> <!--colocar função e o que cada caixa vai ser-->
             <button img src="Imagem do que for" type="button" href="Link de onde levar">2</button>
@@ -62,128 +60,124 @@
         
 
         <style>
-                        body {
-               width: 50vw;
-               height: 40vh;
-               margin: 0;
-               overflow: auto;
-               background: linear-gradient(to right, #F2B2CF, #FBDCC2);
+            body {
+                width: 50vw;
+                height: 40vh;
+                margin: 0;
+                overflow: auto;
+                background: linear-gradient(to right, #F2B2CF, #FBDCC2);
             }
-.caixasrc {
-    width: 1760px;
-    height: 1000px;
-    border-radius: 17px;
-    background-color: #ffffff;
-    position: relative;
-    left: 7%;
-    bottom: 0px;
-    opacity: 80%;
-}
+            .caixasrc {
+                width: 1760px;
+                height: 1000px;
+                border-radius: 17px;
+                background-color: #ffffff;
+                position: relative;
+                left: 7%;
+                bottom: 0px;
+                opacity: 80%;
+            }
 
 
 
-.fundo_bege {
-    width: 1700px;
-    height: 300px;
-    border-radius: 17px;
-    background-color: #FCE4BB;
-    position: relative;
-    left: 10%;
-    bottom: 960px;
-            
-}
-.fundo_bege2 {
-    width: 1700px;
-    height: 570px;
-    border-radius: 17px;
-    background-color: #FCE4BB;
-    position: relative;
-    left: 10%;
-    bottom: 1150px;
-            
-}
-.botoes_de_cima {
-    display: flex;
-    overflow-x: auto;
-    gap: 70px;
-    padding: 10px;
-    white-space: nowrap;
-    width: 100%;
-    max-width: 4000px; 
-    background-color: transparent;
-    border-radius: 17px;
-    position: relative;
-    left: 45%;
-    bottom: 1200px;
-}
+            .fundo_bege {
+                width: 1700px;
+                height: 300px;
+                border-radius: 17px;
+                background-color: #FCE4BB;
+                position: relative;
+                left: 10%;
+                bottom: 960px;          
+            }
+            .fundo_bege2 {
+                width: 1700px;
+                height: 570px;
+                border-radius: 17px;
+                background-color: #FCE4BB;
+                position: relative;
+                left: 10%;
+                bottom: 1150px;          
+            }
+            .botoes_de_cima {
+                display: flex;
+                overflow-x: auto;
+                gap: 70px;
+                padding: 10px;
+                white-space: nowrap;
+                width: 100%;
+                max-width: 4000px; 
+                background-color: transparent;
+                border-radius: 17px;
+                position: relative;
+                left: 45%;
+                bottom: 1200px;
+            }
 
-.botoes_de_cima button {
-    flex: 0 0 auto;
-    padding: 40px 40px;
-    font-size: 16px;
-    cursor: pointer;
-    background-color: #ffffff;
-    color: white;
-    border: none;
-    border-radius: 18px;
+            .botoes_de_cima button {
+                flex: 0 0 auto;
+                padding: 40px 40px;
+                font-size: 16px;
+                cursor: pointer;
+                background-color: #ffffff;
+                color: white;
+                border: none;
+                border-radius: 18px;   
+            }
+
+            .CaixaDePesquisa {
+                display: flex;
+                align-items: center;
+                width: 100%;
+                height: 40px;
+                max-width: 1200px;
+                background-color: #f1f3f5;
+                border-radius: 50px;
+                padding: 8px 16px;
+                border: 2px solid transparent;
+                transition: all 0.3s ease;
+                position: relative;
+                left: 50%;
+                bottom: 1200px;
+            }
+
+            .CaixaDePesquisa:focus-within {
+                background-color: #fff;
+                border-color: #4c6ef5;
+                box-shadow: 0 0 8px rgba(76, 110, 245, 0.2);
+            }
+
+            .TextoDePesquisa {
+                flex: 1;
+                border: none;
+                outline: none;
+                background: transparent;
+                font-size: 16px;
+                color: #495057;
+            }
+
+            .TextoDePesquisa::placeholder {
+                color: #adb5bd;
+            }
+
+            .Icon {
+                background: none;
+                border: none;
+                cursor: pointer;
+                font-size: 18px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .Banners {
+                height: 40px;
+                width: 50px;
+                background-color: rgb(236, 90, 236);
+                border: hidden;
+                border-radius: 20px;
+                font-size: 20px;
     
-    
-}
-
-  .CaixaDePesquisa {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  height: 40px;
-  max-width: 1200px;
-  background-color: #f1f3f5;
-  border-radius: 50px;
-  padding: 8px 16px;
-  border: 2px solid transparent;
-  transition: all 0.3s ease;
-  position: relative;
-  left: 50%;
-  bottom: 1200px;
-}
-
-.CaixaDePesquisa:focus-within {
-  background-color: #fff;
-  border-color: #4c6ef5;
-  box-shadow: 0 0 8px rgba(76, 110, 245, 0.2);
-}
-
-.TextoDePesquisa {
-  flex: 1;
-  border: none;
-  outline: none;
-  background: transparent;
-  font-size: 16px;
-  color: #495057;
-}
-
-.TextoDePesquisa::placeholder {
-  color: #adb5bd;
-}
-
-.Icon {
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-size: 18px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.Banners {
-    height: 40px;
-    width: 50px;
-    background-color: rgb(236, 90, 236);
-    border: hidden;
-    border-radius: 20px;
-    font-size: 20px;
-    
-}
+            }
         </style>
 
     </body>

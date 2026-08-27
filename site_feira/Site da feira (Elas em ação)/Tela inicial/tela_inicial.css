@@ -1,11 +1,11 @@
 
-            body {
-               width: 50vw;
-               height: 40vh;
-               margin: 0;
-               overflow: auto;
-               background: linear-gradient(to right, #F2B2CF, #FBDCC2);
-            }
+body {
+    width: 50vw;
+    height: 40vh;
+    margin: 0;
+    overflow: auto;
+    background: linear-gradient(to right, #F2B2CF, #FBDCC2);
+}
 .caixasrc {
     width: 1760px;
     height: 1000px;
@@ -16,8 +16,6 @@
     bottom: 0px;
     opacity: 80%;
 }
-
-
 
 .fundo_bege {
     width: 1700px;
