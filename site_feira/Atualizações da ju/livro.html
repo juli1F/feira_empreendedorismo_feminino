@@ -1,0 +1,1352 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Livros | Elas Empreendedoras</title>
+
+    <style>
+        /* =========================================================
+           RESET
+        ========================================================= */
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        /* =========================================================
+           CORES DO TRABALHO
+        ========================================================= */
+        
+         :root {
+            --pink: #f3a6c5;
+            --pink-light: #ffc0c4;
+            --pink-soft: #fce5e4;
+            --purple: #c9a0cf;
+            --purple-dark: #a98bb1;
+            --cream: #fff0dc;
+            --cream-dark: #f9dfb5;
+            --white: #ffffff;
+            --text: #6f5962;
+            --text-light: #9b8585;
+            --border: #d3aeb0;
+        }
+        /* =========================================================
+           BODY
+        ========================================================= */
+        
+        body {
+            min-height: 100vh;
+            background: linear-gradient( 135deg, #efa3c4 0%, #f2abc9 32%, #f7bdc7 58%, #f9ccc0 78%, #f8d7c3 100%);
+            font-family: Georgia, "Times New Roman", serif;
+            color: var(--text);
+            overflow-x: hidden;
+        }
+        /* =========================================================
+           DECORAÇÕES DO FUNDO
+        ========================================================= */
+        
+        body::before {
+            content: "";
+            position: fixed;
+            width: 620px;
+            height: 620px;
+            right: -250px;
+            top: -250px;
+            border: 45px solid rgba(231, 118, 166, .45);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        body::after {
+            content: "";
+            position: fixed;
+            width: 600px;
+            height: 600px;
+            left: -450px;
+            bottom: -400px;
+            border: 45px solid rgba(255, 246, 197, .75);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 0;
+        }
+        /* =========================================================
+           PÁGINA
+        ========================================================= */
+        
+        .page {
+            width: calc(100% - 60px);
+            max-width: 1500px;
+            min-height: calc(100vh - 40px);
+            margin: 20px auto;
+            background: rgba(255, 247, 237, .94);
+            border-radius: 42px;
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+            box-shadow: 0 15px 45px rgba(120, 80, 90, .12);
+            animation: entrance .7s ease;
+        }
+        
+        @keyframes entrance {
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        /* =========================================================
+           CABEÇALHO
+        ========================================================= */
+        
+        .header {
+            margin: 30px 35px 0;
+            background: var(--cream-dark);
+            border-radius: 25px;
+            padding: 18px 28px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        /* =========================================================
+           LOGO / VOLTAR
+        ========================================================= */
+        
+        .back-button {
+            border: none;
+            background: rgba(255, 255, 255, .7);
+            color: #8c6470;
+            border-radius: 20px;
+            padding: 12px 20px;
+            font-family: inherit;
+            font-size: 15px;
+            cursor: pointer;
+            transition: .2s;
+        }
+        
+        .back-button:hover {
+            background: white;
+            transform: translateX(-3px);
+        }
+        /* =========================================================
+           TÍTULO
+        ========================================================= */
+        
+        .header-title {
+            text-align: center;
+            flex: 1;
+        }
+        
+        .header-title h1 {
+            font-size: 34px;
+            color: #8c6470;
+            letter-spacing: 1px;
+        }
+        
+        .header-title p {
+            margin-top: 5px;
+            color: #9b8585;
+            font-size: 14px;
+        }
+        /* =========================================================
+           BOTÃO PERFIL
+        ========================================================= */
+        
+        .profile {
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            border: 1px solid #c6a5a8;
+            background: white;
+            cursor: pointer;
+            font-size: 21px;
+            transition: .2s;
+        }
+        
+        .profile:hover {
+            transform: scale(1.05);
+            background: var(--pink-soft);
+        }
+        /* =========================================================
+           ÁREA PRINCIPAL
+        ========================================================= */
+        
+        .content {
+            margin: 20px 35px 35px;
+            background: rgba(250, 225, 184, .65);
+            border-radius: 25px;
+            padding: 30px;
+            min-height: calc(100vh - 190px);
+            overflow: hidden;
+        }
+        /* =========================================================
+           INTRODUÇÃO
+        ========================================================= */
+        
+        .intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 28px;
+        }
+        
+        .intro h2 {
+            color: #8c6470;
+            font-size: 26px;
+            margin-bottom: 8px;
+        }
+        
+        .intro p {
+            color: #927d83;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+        /* =========================================================
+           PESQUISA
+        ========================================================= */
+        
+        .search-area {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+        
+        .search {
+            width: min(600px, 100%);
+            height: 50px;
+            background: white;
+            border: 1px solid #c9aaad;
+            border-radius: 25px;
+            display: flex;
+            align-items: center;
+            padding: 0 18px;
+            box-shadow: 0 4px 15px rgba(100, 60, 70, .06);
+        }
+        
+        .search-icon {
+            font-size: 19px;
+            margin-right: 12px;
+        }
+        
+        .search input {
+            border: none;
+            outline: none;
+            width: 100%;
+            font-family: inherit;
+            font-size: 15px;
+            color: #6f5962;
+            background: transparent;
+        }
+        
+        .search input::placeholder {
+            color: #aaa;
+        }
+        /* =========================================================
+           GRID DOS LIVROS
+        ========================================================= */
+        
+        .books {
+            display: grid;
+            grid-template-columns: repeat(5, minmax(150px, 1fr));
+            gap: 25px;
+        }
+        /* =========================================================
+           LIVRO
+        ========================================================= */
+        
+        .book {
+            background: rgba(255, 255, 255, .7);
+            border-radius: 18px;
+            padding: 12px;
+            cursor: pointer;
+            border: 1px solid rgba(180, 140, 145, .45);
+            transition: .25s;
+            animation: bookIn .5s ease both;
+        }
+        
+        .book:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 12px 25px rgba(120, 80, 90, .15);
+            background: white;
+        }
+        
+        @keyframes bookIn {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        /* =========================================================
+           CAPA
+        ========================================================= */
+        
+        .cover {
+            width: 100%;
+            aspect-ratio: 2 / 3;
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 18px;
+            color: white;
+            box-shadow: inset -8px 0 15px rgba(0, 0, 0, .08);
+        }
+        /* lombada */
+        
+        .cover::before {
+            content: "";
+            position: absolute;
+            left: 10px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: rgba(255, 255, 255, .35);
+        }
+        
+        .cover-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .cover small {
+            display: block;
+            font-size: 10px;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            opacity: .85;
+        }
+        
+        .cover h3 {
+            font-size: 19px;
+            line-height: 1.25;
+        }
+        
+        .cover span {
+            display: block;
+            margin-top: 18px;
+            font-size: 11px;
+            opacity: .9;
+        }
+        /* =========================================================
+           CORES DAS CAPAS
+        ========================================================= */
+        
+        .pink-book {
+            background: linear-gradient( 145deg, #d9789e, #f3a6c5);
+        }
+        
+        .purple-book {
+            background: linear-gradient( 145deg, #92719b, #c9a0cf);
+        }
+        
+        .peach-book {
+            background: linear-gradient( 145deg, #e58f8c, #f5c0a8);
+        }
+        
+        .cream-book {
+            background: linear-gradient( 145deg, #c99c72, #f9dfb5);
+        }
+        
+        .rose-book {
+            background: linear-gradient( 145deg, #b86d80, #efacb7);
+        }
+        /* =========================================================
+           INFORMAÇÕES DO LIVRO
+        ========================================================= */
+        
+        .book-info {
+            padding: 13px 5px 5px;
+        }
+        
+        .book-info h3 {
+            font-size: 16px;
+            color: #745965;
+            line-height: 1.3;
+        }
+        
+        .book-info p {
+            margin-top: 5px;
+            font-size: 12px;
+            color: #9a858b;
+        }
+        
+        .book-category {
+            display: inline-block;
+            margin-top: 8px;
+            padding: 4px 9px;
+            border-radius: 12px;
+            background: var(--pink-soft);
+            color: #9b6675;
+            font-size: 10px;
+        }
+        /* =========================================================
+           SEM RESULTADO
+        ========================================================= */
+        
+        .no-results {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 60px;
+            color: #9b8585;
+        }
+        /* =========================================================
+           MODAL
+        ========================================================= */
+        
+        .overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(70, 45, 60, .4);
+            backdrop-filter: blur(4px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 100;
+            padding: 20px;
+        }
+        
+        .overlay.show {
+            display: flex;
+        }
+        
+        .modal {
+            width: min(600px, 100%);
+            background: #fff7ed;
+            border-radius: 25px;
+            padding: 30px;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(50, 30, 40, .25);
+            animation: modalIn .25s ease;
+        }
+        
+        @keyframes modalIn {
+            from {
+                opacity: 0;
+                transform: scale(.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 18px;
+            width: 35px;
+            height: 35px;
+            border: none;
+            border-radius: 50%;
+            background: var(--pink-light);
+            color: #765968;
+            font-size: 20px;
+            cursor: pointer;
+        }
+        
+        .modal h2 {
+            color: #8c6470;
+            margin-bottom: 10px;
+            padding-right: 35px;
+        }
+        
+        .modal .author {
+            color: #a37987;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+        
+        .modal p {
+            color: #777;
+            line-height: 1.7;
+        }
+        
+        .read-button {
+            margin-top: 20px;
+            border: none;
+            background: var(--purple);
+            color: white;
+            border-radius: 20px;
+            padding: 11px 22px;
+            cursor: pointer;
+            font-family: inherit;
+        }
+        
+        .read-button:hover {
+            background: var(--purple-dark);
+        }
+        /* =========================================================
+           RESPONSIVIDADE
+        ========================================================= */
+        
+        @media (max-width: 1100px) {
+            .books {
+                grid-template-columns: repeat(4, minmax(140px, 1fr));
+            }
+        }
+        
+        @media (max-width: 850px) {
+            .page {
+                width: calc(100% - 30px);
+            }
+            .header {
+                margin-left: 20px;
+                margin-right: 20px;
+            }
+            .content {
+                margin-left: 20px;
+                margin-right: 20px;
+            }
+            .books {
+                grid-template-columns: repeat(3, minmax(140px, 1fr));
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .page {
+                width: 100%;
+                margin: 0;
+                border-radius: 0;
+            }
+            .header {
+                margin: 15px;
+                padding: 15px;
+            }
+            .header-title h1 {
+                font-size: 24px;
+            }
+            .header-title p {
+                display: none;
+            }
+            .content {
+                margin: 10px 15px 15px;
+                padding: 20px 15px;
+            }
+            .books {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+            .book {
+                padding: 8px;
+            }
+            .book-info h3 {
+                font-size: 14px;
+            }
+        }
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <main class="page">
+
+
+        <!-- =====================================================
+             CABEÇALHO
+        ====================================================== -->
+
+        <header class="header">
+
+
+            <button class="back-button" onclick="voltarHome()">
+
+                ← Voltar
+
+            </button>
+
+
+            <div class="header-title">
+
+                <h1>Biblioteca</h1>
+
+                <p>
+                    Livros para inspirar, aprender e empreender
+                </p>
+
+            </div>
+
+
+            <button class="profile" onclick="irPerfil()">
+
+                ♡
+
+            </button>
+
+
+        </header>
+
+
+
+        <!-- =====================================================
+             CONTEÚDO
+        ====================================================== -->
+
+        <section class="content">
+
+
+            <div class="intro">
+
+                <h2>
+                    Livros para mulheres que fazem acontecer
+                </h2>
+
+                <p>
+                    Uma seleção de livros sobre empreendedorismo, liderança, criatividade, negócios e histórias de mulheres que transformaram suas ideias em realidade.
+                </p>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 PESQUISA
+            ================================================== -->
+
+            <div class="search-area">
+
+                <div class="search">
+
+                    <span class="search-icon">
+                        🔎
+                    </span>
+
+                    <input type="text" id="searchInput" placeholder="Pesquisar livro ou autora..." autocomplete="off">
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 LIVROS
+            ================================================== -->
+
+            <div class="books" id="booksGrid">
+
+
+                <!-- LIVRO 1 -->
+
+                <article class="book" data-title="Mulheres que Correm com os Lobos" data-author="Clarissa Pinkola Estés" data-category="Inspiracao" data-description="Uma obra que explora histórias e símbolos ligados à força, criatividade e liberdade feminina." onclick="abrirLivro(this)">
+
+                    <div class="cover pink-book">
+
+                        <div class="cover-content">
+
+                            <small>
+                                ELAS EMPREENDEDORAS
+                            </small>
+
+                            <h3>
+                                Mulheres que Correm com os Lobos
+                            </h3>
+
+                            <span>
+                                Clarissa Pinkola Estés
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="book-info">
+
+                        <h3>
+                            Mulheres que Correm com os Lobos
+                        </h3>
+
+                        <p>
+                            Clarissa Pinkola Estés
+                        </p>
+
+                        <span class="book-category">
+                            Inspiração
+                        </span>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- LIVRO 2 -->
+
+                <article class="book" data-title="Comece pelo Porquê" data-author="Simon Sinek" data-category="Liderança" data-description="Uma reflexão sobre propósito, liderança e a importância de entender o motivo por trás de uma ideia ou negócio." onclick="abrirLivro(this)">
+
+                    <div class="cover purple-book">
+
+                        <div class="cover-content">
+
+                            <small>
+                                ELAS EMPREENDEDORAS
+                            </small>
+
+                            <h3>
+                                Comece pelo Porquê
+                            </h3>
+
+                            <span>
+                                Simon Sinek
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="book-info">
+
+                        <h3>
+                            Comece pelo Porquê
+                        </h3>
+
+                        <p>
+                            Simon Sinek
+                        </p>
+
+                        <span class="book-category">
+                            Liderança
+                        </span>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- LIVRO 3 -->
+
+                <article class="book" data-title="Mindset" data-author="Carol S. Dweck" data-category="Desenvolvimento" data-description="Livro sobre mentalidade de crescimento e como nossas crenças podem influenciar nosso desenvolvimento." onclick="abrirLivro(this)">
+
+                    <div class="cover peach-book">
+
+                        <div class="cover-content">
+
+                            <small>
+                                ELAS EMPREENDEDORAS
+                            </small>
+
+                            <h3>
+                                Mindset
+                            </h3>
+
+                            <span>
+                                Carol S. Dweck
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="book-info">
+
+                        <h3>
+                            Mindset
+                        </h3>
+
+                        <p>
+                            Carol S. Dweck
+                        </p>
+
+                        <span class="book-category">
+                            Desenvolvimento
+                        </span>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- LIVRO 4 -->
+
+                <article class="book" data-title="A Coragem de Ser Imperfeito" data-author="Brené Brown" data-category="Desenvolvimento" data-description="Uma obra sobre vulnerabilidade, coragem, autoestima e a busca por uma vida mais autêntica." onclick="abrirLivro(this)">
+
+                    <div class="cover cream-book">
+
+                        <div class="cover-content">
+
+                            <small>
+                                ELAS EMPREENDEDORAS
+                            </small>
+
+                            <h3>
+                                A Coragem de Ser Imperfeito
+                            </h3>
+
+                            <span>
+                                Brené Brown
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="book-info">
+
+                        <h3>
+                            A Coragem de Ser Imperfeito
+                        </h3>
+
+                        <p>
+                            Brené Brown
+                        </p>
+
+                        <span class="book-category">
+                            Desenvolvimento
+                        </span>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- LIVRO 5 -->
+
+                <article class="book" data-title="Faça Acontecer" data-author="Sheryl Sandberg" data-category="Carreira" data-description="Uma reflexão sobre carreira, liderança e os desafios enfrentados por mulheres no ambiente profissional." onclick="abrirLivro(this)">
+
+                    <div class="cover rose-book">
+
+                        <div class="cover-content">
+
+                            <small>
+                                ELAS EMPREENDEDORAS
+                            </small>
+
+                            <h3>
+                                Faça Acontecer
+                            </h3>
+
+                            <span>
+                                Sheryl Sandberg
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="book-info">
+
+                        <h3>
+                            Faça Acontecer
+                        </h3>
+
+                        <p>
+                            Sheryl Sandberg
+                        </p>
+
+                        <span class="book-category">
+                            Carreira
+                        </span>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- LIVRO 6 -->
+
+                <article class="book" data-title="O Poder do Hábito" data-author="Charles Duhigg" data-category="Produtividade" data-description="Uma introdução ao funcionamento dos hábitos e à maneira como eles podem influenciar nossas rotinas." onclick="abrirLivro(this)">
+
+                    <div class="cover purple-book">
+
+                        <div class="cover-content">
+
+                            <small>
+                                ELAS EMPREENDEDORAS
+                            </small>
+
+                            <h3>
+                                O Poder do Hábito
+                            </h3>
+
+                            <span>
+                                Charles Duhigg
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="book-info">
+
+                        <h3>
+                            O Poder do Hábito
+                        </h3>
+
+                        <p>
+                            Charles Duhigg
+                        </p>
+
+                        <span class="book-category">
+                            Produtividade
+                        </span>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- LIVRO 7 -->
+
+                <article class="book" data-title="Empreendedora" data-author="Diversas autoras" data-category="Empreendedorismo" data-description="Conteúdos e reflexões sobre criatividade, negócios e os desafios de construir uma trajetória empreendedora." onclick="abrirLivro(this)">
+
+                    <div class="cover pink-book">
+
+                        <div class="cover-content">
+
+                            <small>
+                                ELAS EMPREENDEDORAS
+                            </small>
+
+                            <h3>
+                                Empreendedora
+                            </h3>
+
+                            <span>
+                                Diversas autoras
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="book-info">
+
+                        <h3>
+                            Empreendedora
+                        </h3>
+
+                        <p>
+                            Diversas autoras
+                        </p>
+
+                        <span class="book-category">
+                            Empreendedorismo
+                        </span>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- LIVRO 8 -->
+
+                <article class="book" data-title="Criatividade S.A." data-author="Ed Catmull" data-category="Criatividade" data-description="Uma visão sobre criatividade, inovação e construção de ambientes onde novas ideias possam surgir." onclick="abrirLivro(this)">
+
+                    <div class="cover peach-book">
+
+                        <div class="cover-content">
+
+                            <small>
+                                ELAS EMPREENDEDORAS
+                            </small>
+
+                            <h3>
+                                Criatividade S.A.
+                            </h3>
+
+                            <span>
+                                Ed Catmull
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="book-info">
+
+                        <h3>
+                            Criatividade S.A.
+                        </h3>
+
+                        <p>
+                            Ed Catmull
+                        </p>
+
+                        <span class="book-category">
+                            Criatividade
+                        </span>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- LIVRO 9 -->
+
+                <article class="book" data-title="Mais Esperto que o Diabo" data-author="Napoleon Hill" data-category="Mentalidade" data-description="Reflexões sobre medo, hábitos, objetivos e os obstáculos que podem impedir o desenvolvimento pessoal." onclick="abrirLivro(this)">
+
+                    <div class="cover cream-book">
+
+                        <div class="cover-content">
+
+                            <small>
+                                ELAS EMPREENDEDORAS
+                            </small>
+
+                            <h3>
+                                Mais Esperto que o Diabo
+                            </h3>
+
+                            <span>
+                                Napoleon Hill
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="book-info">
+
+                        <h3>
+                            Mais Esperto que o Diabo
+                        </h3>
+
+                        <p>
+                            Napoleon Hill
+                        </p>
+
+                        <span class="book-category">
+                            Mentalidade
+                        </span>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- LIVRO 10 -->
+
+                <article class="book" data-title="Quem Pensa Enriquece" data-author="Napoleon Hill" data-category="Negócios" data-description="Um clássico sobre objetivos, planejamento, persistência e mentalidade voltada para realização." onclick="abrirLivro(this)">
+
+                    <div class="cover rose-book">
+
+                        <div class="cover-content">
+
+                            <small>
+                                ELAS EMPREENDEDORAS
+                            </small>
+
+                            <h3>
+                                Quem Pensa Enriquece
+                            </h3>
+
+                            <span>
+                                Napoleon Hill
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="book-info">
+
+                        <h3>
+                            Quem Pensa Enriquece
+                        </h3>
+
+                        <p>
+                            Napoleon Hill
+                        </p>
+
+                        <span class="book-category">
+                            Negócios
+                        </span>
+
+                    </div>
+
+                </article>
+
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =========================================================
+         MODAL DO LIVRO
+    ========================================================== -->
+
+    <div class="overlay" id="overlay">
+
+
+        <div class="modal">
+
+
+            <button class="close" onclick="fecharModal()">
+
+                ×
+
+            </button>
+
+
+            <h2 id="modalTitle">
+                Livro
+            </h2>
+
+
+            <div class="author" id="modalAuthor">
+            </div>
+
+
+            <p id="modalDescription">
+            </p>
+
+
+            <button class="read-button" onclick="fecharModal()">
+
+                Fechar
+
+            </button>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =========================================================
+         JAVASCRIPT
+    ========================================================== -->
+
+    <script>
+        // =====================================================
+        // VOLTAR PARA HOME
+        // =====================================================
+
+        function voltarHome() {
+
+            window.location.href = "Home.html";
+
+        }
+
+
+        // =====================================================
+        // IR PARA PERFIL
+        // =====================================================
+
+        function irPerfil() {
+
+            window.location.href = "perfil.html";
+
+        }
+
+
+        // =====================================================
+        // ELEMENTOS
+        // =====================================================
+
+        const searchInput =
+            document.getElementById("searchInput");
+
+        const booksGrid =
+            document.getElementById("booksGrid");
+
+        const overlay =
+            document.getElementById("overlay");
+
+        const modalTitle =
+            document.getElementById("modalTitle");
+
+        const modalAuthor =
+            document.getElementById("modalAuthor");
+
+        const modalDescription =
+            document.getElementById("modalDescription");
+
+
+        // =====================================================
+        // PESQUISA
+        // =====================================================
+
+        searchInput.addEventListener("input", function() {
+
+            const termo =
+                this.value
+                .toLowerCase()
+                .trim();
+
+
+            const livros =
+                document.querySelectorAll(".book");
+
+
+            let encontrados = 0;
+
+
+            livros.forEach(livro => {
+
+                const titulo =
+                    livro.dataset.title
+                    .toLowerCase();
+
+
+                const autor =
+                    livro.dataset.author
+                    .toLowerCase();
+
+
+                const categoria =
+                    livro.dataset.category
+                    .toLowerCase();
+
+
+                const aparece =
+                    titulo.includes(termo) ||
+                    autor.includes(termo) ||
+                    categoria.includes(termo);
+
+
+                livro.style.display =
+                    aparece ? "" : "none";
+
+
+                if (aparece) {
+
+                    encontrados++;
+
+                }
+
+            });
+
+
+            let aviso =
+                document.querySelector(".no-results");
+
+
+            if (encontrados === 0) {
+
+                if (!aviso) {
+
+                    aviso =
+                        document.createElement("div");
+
+                    aviso.className =
+                        "no-results";
+
+                    aviso.textContent =
+                        "Nenhum livro encontrado.";
+
+                    booksGrid.appendChild(aviso);
+
+                }
+
+            } else {
+
+                if (aviso) {
+
+                    aviso.remove();
+
+                }
+
+            }
+
+        });
+
+
+        // =====================================================
+        // ABRIR LIVRO
+        // =====================================================
+
+        function abrirLivro(livro) {
+
+            modalTitle.textContent =
+                livro.dataset.title;
+
+
+            modalAuthor.textContent =
+                "Autora / Autor: " +
+                livro.dataset.author;
+
+
+            modalDescription.textContent =
+                livro.dataset.description;
+
+
+            overlay.classList.add("show");
+
+        }
+
+
+        // =====================================================
+        // FECHAR MODAL
+        // =====================================================
+
+        function fecharModal() {
+
+            overlay.classList.remove("show");
+
+        }
+
+
+        // =====================================================
+        // CLICAR FORA
+        // =====================================================
+
+        overlay.addEventListener("click", function(event) {
+
+            if (event.target === overlay) {
+
+                fecharModal();
+
+            }
+
+        });
+
+
+        // =====================================================
+        // ESC
+        // =====================================================
+
+        document.addEventListener("keydown", function(event) {
+
+            if (event.key === "Escape") {
+
+                fecharModal();
+
+            }
+
+        });
+    </script>
+
+
+</body>
+
+</html>

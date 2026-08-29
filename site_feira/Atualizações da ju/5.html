@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Lugares para Empreender | Elas Empreendedoras</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+         :root {
+            --pink: #f3a6c5;
+            --pink-light: #ffc0c4;
+            --pink-soft: #fce5e4;
+            --purple: #c9a0cf;
+            --cream: #fff0dc;
+            --cream-dark: #f9dfb5;
+        }
+        
+        body {
+            min-height: 100vh;
+            background: linear-gradient( 135deg, #efa3c4 0%, #f2abc9 32%, #f7bdc7 58%, #f9ccc0 78%, #f8d7c3 100%);
+            font-family: Georgia, "Times New Roman", serif;
+            color: #705963;
+            overflow-x: hidden;
+        }
+        
+        body::before {
+            content: "";
+            position: fixed;
+            width: 650px;
+            height: 650px;
+            right: -210px;
+            top: -180px;
+            border: 50px solid rgba(231, 118, 166, .55);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        
+        body::after {
+            content: "";
+            position: fixed;
+            width: 650px;
+            height: 650px;
+            left: -500px;
+            bottom: -390px;
+            border: 50px solid rgba(255, 246, 197, .85);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        
+        .page {
+            width: calc(100% - 60px);
+            max-width: 1500px;
+            min-height: calc(100vh - 40px);
+            margin: 20px auto;
+            background: rgba(255, 247, 237, .94);
+            border-radius: 42px;
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+            box-shadow: 0 15px 45px rgba(120, 80, 90, .12);
+        }
+        
+        .header {
+            margin: 30px 35px 0;
+            min-height: 145px;
+            background: var(--cream-dark);
+            border-radius: 25px;
+            padding: 20px 28px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .back {
+            border: none;
+            background: white;
+            color: #8c6470;
+            padding: 12px 19px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-family: inherit;
+        }
+        
+        .header-title {
+            flex: 1;
+            text-align: center;
+        }
+        
+        .header-title small {
+            color: #a17d86;
+            letter-spacing: 3px;
+            font-size: 10px;
+        }
+        
+        .header-title h1 {
+            color: #8c6470;
+            font-size: 31px;
+            margin: 8px 0;
+        }
+        
+        .header-title p {
+            color: #9b8585;
+            font-size: 14px;
+        }
+        
+        .header-icon {
+            width: 55px;
+            height: 55px;
+            border-radius: 15px;
+            background: white;
+            border: 1px solid #d1b2b5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #a7798a;
+            font-size: 23px;
+        }
+        
+        .content {
+            margin: 20px 35px 35px;
+            padding: 30px;
+            min-height: calc(100vh - 205px);
+            background: rgba(250, 225, 184, .70);
+            border-radius: 25px;
+        }
+        
+        .intro {
+            text-align: center;
+            max-width: 850px;
+            margin: 0 auto 30px;
+        }
+        
+        .intro h2 {
+            color: #8c6470;
+            font-size: 25px;
+            margin-bottom: 8px;
+        }
+        
+        .intro p {
+            color: #927d83;
+            line-height: 1.6;
+            font-size: 14px;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(170px, 1fr));
+            gap: 28px;
+            max-width: 1100px;
+            margin: auto;
+        }
+        
+        .card {
+            background: rgba(255, 255, 255, .72);
+            border: 1px solid rgba(190, 150, 155, .45);
+            border-radius: 20px;
+            padding: 12px;
+            cursor: pointer;
+            transition: .25s;
+        }
+        
+        .card:hover {
+            transform: translateY(-8px);
+            background: white;
+            box-shadow: 0 14px 25px rgba(120, 80, 90, .14);
+        }
+        
+        .place-image {
+            aspect-ratio: 1 / 1;
+            border-radius: 17px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 45px;
+        }
+        
+        .place-image::after {
+            content: "";
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            border: 2px solid rgba(255, 255, 255, .3);
+            border-radius: 50%;
+            right: -55px;
+            top: -50px;
+        }
+        
+        .card:nth-child(1) .place-image {
+            background: linear-gradient(145deg, #b86d8b, #edafc0);
+        }
+        
+        .card:nth-child(2) .place-image {
+            background: linear-gradient(145deg, #8f7299, #c7a5cd);
+        }
+        
+        .card:nth-child(3) .place-image {
+            background: linear-gradient(145deg, #d58984, #f1b5a7);
+        }
+        
+        .card:nth-child(4) .place-image {
+            background: linear-gradient(145deg, #a68165, #ebc69e);
+        }
+        
+        .card-info {
+            padding: 14px 5px 5px;
+        }
+        
+        .card-info h3 {
+            color: #745965;
+            font-size: 17px;
+            line-height: 1.3;
+        }
+        
+        .card-info p {
+            color: #9a858b;
+            font-size: 12px;
+            line-height: 1.5;
+            margin-top: 6px;
+        }
+        
+        .place-tag {
+            display: inline-block;
+            margin-top: 9px;
+            background: var(--pink-soft);
+            color: #9b6675;
+            padding: 5px 9px;
+            border-radius: 12px;
+            font-size: 10px;
+        }
+        
+        .overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(70, 45, 60, .42);
+            backdrop-filter: blur(4px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            z-index: 100;
+        }
+        
+        .overlay.show {
+            display: flex;
+        }
+        
+        .modal {
+            width: min(580px, 100%);
+            background: #fff7ed;
+            border-radius: 25px;
+            padding: 30px;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(50, 30, 40, .25);
+        }
+        
+        .close {
+            position: absolute;
+            right: 17px;
+            top: 15px;
+            width: 35px;
+            height: 35px;
+            border: none;
+            border-radius: 50%;
+            background: var(--pink-light);
+            color: #765968;
+            font-size: 20px;
+            cursor: pointer;
+        }
+        
+        .modal h2 {
+            color: #8c6470;
+            margin-bottom: 10px;
+        }
+        
+        .modal p {
+            color: #777;
+            line-height: 1.7;
+        }
+        
+        .modal small {
+            color: #a37987;
+        }
+        
+        @media(max-width:850px) {
+            .grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media(max-width:600px) {
+            .page {
+                width: 100%;
+                margin: 0;
+                border-radius: 0;
+            }
+            .header {
+                margin: 15px;
+            }
+            .header-title h1 {
+                font-size: 23px;
+            }
+            .header-title p {
+                display: none;
+            }
+            .content {
+                margin: 10px 15px;
+                padding: 20px 15px;
+            }
+            .grid {
+                grid-template-columns: 1fr;
+                gap: 18px;
+            }
+        }
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <main class="page">
+
+
+        <header class="header">
+
+            <button class="back" onclick="window.location.href='Home.html'">
+
+← Voltar
+
+</button>
+
+
+            <div class="header-title">
+
+                <small>
+CONEXÕES & IDEIAS
+</small>
+
+                <h1>
+                    Lugares que inspiram a empreender
+                </h1>
+
+                <p>
+                    Ambientes onde ideias encontram pessoas
+                </p>
+
+            </div>
+
+
+            <div class="header-icon">
+                ⌂
+            </div>
+
+        </header>
+
+
+
+        <section class="content">
+
+
+            <div class="intro">
+
+                <h2>
+                    Empreender também é encontrar pessoas
+                </h2>
+
+                <p>
+                    Eventos, coworkings, universidades e espaços de inovação podem aproximar empreendedoras, ideias, parceiros e novas oportunidades.
+                </p>
+
+            </div>
+
+
+
+            <div class="grid">
+
+
+                <article class="card" data-title="Coworkings" data-description="Espaços de coworking permitem trabalhar próximo de profissionais de diferentes áreas, favorecendo networking, troca de experiências e possíveis parcerias." onclick="abrir(this)">
+
+                    <div class="place-image">
+                        ⌂
+                    </div>
+
+                    <div class="card-info">
+
+                        <h3>Coworkings</h3>
+
+                        <p>
+                            Ambientes compartilhados para trabalho e networking.
+                        </p>
+
+                        <span class="place-tag">
+Networking
+</span>
+
+                    </div>
+
+                </article>
+
+
+
+                <article class="card" data-title="Eventos e feiras" data-description="Feiras, encontros e eventos de negócios podem aproximar empreendedoras de clientes, fornecedores, investidores e outras pessoas interessadas em inovação." onclick="abrir(this)">
+
+                    <div class="place-image">
+                        ✦
+                    </div>
+
+                    <div class="card-info">
+
+                        <h3>Eventos e feiras</h3>
+
+                        <p>
+                            Encontros para trocar ideias e criar conexões.
+                        </p>
+
+                        <span class="place-tag">
+Conexões
+</span>
+
+                    </div>
+
+                </article>
+
+
+
+                <article class="card" data-title="Universidades e escolas" data-description="Instituições de ensino podem funcionar como ambientes de desenvolvimento de ideias, projetos, pesquisas e novos negócios." onclick="abrir(this)">
+
+                    <div class="place-image">
+                        ⌘
+                    </div>
+
+                    <div class="card-info">
+
+                        <h3>Universidades</h3>
+
+                        <p>
+                            Conhecimento, projetos e novas possibilidades.
+                        </p>
+
+                        <span class="place-tag">
+Educação
+</span>
+
+                    </div>
+
+                </article>
+
+
+
+                <article class="card" data-title="Espaços de inovação" data-description="Parques tecnológicos, incubadoras e hubs de inovação aproximam empreendedores de conhecimento, tecnologia, mentorias e oportunidades." onclick="abrir(this)">
+
+                    <div class="place-image">
+                        ◇
+                    </div>
+
+                    <div class="card-info">
+
+                        <h3>Espaços de inovação</h3>
+
+                        <p>
+                            Ambientes voltados para tecnologia e novos negócios.
+                        </p>
+
+                        <span class="place-tag">
+Inovação
+</span>
+
+                    </div>
+
+                </article>
+
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <div class="overlay" id="overlay">
+
+        <div class="modal">
+
+            <button class="close" onclick="fechar()">
+
+×
+
+</button>
+
+            <h2 id="modalTitle"></h2>
+
+            <small>Por que esse lugar importa?</small>
+
+            <p id="modalDescription"></p>
+
+        </div>
+
+    </div>
+
+
+
+    <script>
+        function abrir(card) {
+
+            document.getElementById("modalTitle").textContent =
+                card.dataset.title;
+
+            document.getElementById("modalDescription").textContent =
+                card.dataset.description;
+
+            document.getElementById("overlay")
+                .classList.add("show");
+
+        }
+
+
+        function fechar() {
+
+            document.getElementById("overlay")
+                .classList.remove("show");
+
+        }
+
+
+        document.getElementById("overlay")
+            .addEventListener("click", function(event) {
+
+                if (event.target === this) {
+                    fechar();
+                }
+
+            });
+
+
+        document.addEventListener("keydown", function(event) {
+
+            if (event.key === "Escape") {
+                fechar();
+            }
+
+        });
+    </script>
+
+
+</body>
+
+</html>
