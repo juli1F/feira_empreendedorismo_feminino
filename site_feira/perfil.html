@@ -6,6 +6,8 @@
 
   <title>Perfil — Elas Empreendedoras</title>
 
+  <link rel="stylesheet" href="estilo_home_feira.css">
+
   <style>
 
     /* =========================================================
@@ -344,25 +346,40 @@
     }
 
 
-    .menu-btn {
-      border-radius: 20px;
+    .menu-button {
+      width: 44px;
+      height: 44px;
+
+      display: grid;
+      align-content: center;
+      gap: 5px;
+
+      padding: 10px;
+
+      border: 1px solid rgba(120, 91, 100, .18);
+      border-radius: 50%;
+
+      background: rgba(255,255,255,.90);
+
+      cursor: pointer;
+
+      transition: background .2s ease, transform .2s ease;
     }
 
-    .menu-btn span,
-    .menu-btn::before,
-    .menu-btn::after {
-      content: "";
+    .menu-button:hover {
+      background: #fffaf8;
+      transform: translateY(-2px);
+    }
 
+    .menu-button span {
       display: block;
 
-      width: 22px;
-      height: 3px;
+      width: 18px;
+      height: 2px;
 
-      background: #666;
+      border-radius: 99px;
 
-      margin: 4px auto;
-
-      border-radius: 2px;
+      background: var(--text);
     }
 
 
@@ -1270,96 +1287,6 @@
 
 
     /* =========================================================
-       MENU LATERAL
-    ========================================================= */
-
-    .side-menu {
-      position: fixed;
-
-      top: 0;
-      left: -330px;
-
-      width: 310px;
-      height: 100vh;
-
-      background: #fff5e8;
-
-      z-index: 200;
-
-      padding: 30px;
-
-      box-shadow:
-        10px 0 30px rgba(0,0,0,.12);
-
-      transition: left .3s ease;
-    }
-
-
-    .side-menu.open {
-      left: 0;
-    }
-
-
-    .side-menu h2 {
-      color: #9d7183;
-
-      font-family: Georgia, serif;
-
-      margin-bottom: 30px;
-    }
-
-
-    .menu-close {
-      position: absolute;
-
-      right: 20px;
-      top: 15px;
-
-      border: none;
-
-      background: transparent;
-
-      font-size: 25px;
-
-      color: #765967;
-
-      cursor: pointer;
-    }
-
-
-    .side-menu button.menu-item {
-      width: 100%;
-
-      border: none;
-
-      padding: 15px;
-
-      margin-bottom: 10px;
-
-      border-radius: 12px;
-
-      background: #f5d4dd;
-
-      color: #765968;
-
-      cursor: pointer;
-
-      text-align: left;
-
-      font-size: 15px;
-
-      transition: .2s;
-    }
-
-
-    .side-menu button.menu-item:hover {
-      background: #e9bccc;
-
-      transform: translateX(4px);
-    }
-
-
-    /* =========================================================
        TOAST
     ========================================================= */
 
@@ -1673,10 +1600,15 @@
         <div class="header-actions">
 
           <button
-            class="action menu-btn"
+            class="menu-button"
             id="menuButton"
-            aria-label="Abrir menu"
+            type="button"
+            aria-label="Abrir central de navegação"
+            aria-controls="sideMenu"
+            aria-expanded="false"
           >
+            <span></span>
+            <span></span>
             <span></span>
           </button>
 
@@ -2192,63 +2124,7 @@
 
   </main>
 
-
-  <!-- =======================================================
-       MENU LATERAL
-  ======================================================= -->
-
-  <aside
-    class="side-menu"
-    id="sideMenu"
-  >
-
-    <button
-      class="menu-close"
-      id="menuClose"
-    >
-      ×
-    </button>
-
-    <h2>
-      Menu
-    </h2>
-
-    <button
-      class="menu-item"
-      onclick="goHome()"
-    >
-      Início
-    </button>
-
-    <button
-      class="menu-item"
-      onclick="showToast('Empreendedoras')"
-    >
-      Empreendedoras
-    </button>
-
-    <button
-      class="menu-item"
-      onclick="showToast('Categorias')"
-    >
-      Categorias
-    </button>
-
-    <button
-      class="menu-item"
-      onclick="showToast('Favoritos')"
-    >
-      Favoritos
-    </button>
-
-    <button
-      class="menu-item"
-      onclick="showToast('Sobre nós')"
-    >
-      Sobre nós
-    </button>
-
-  </aside>
+  <div id="sharedMenu"></div>
 
 
   <!-- =======================================================
@@ -2294,6 +2170,8 @@
   </div>
 
 
+  <script src="menu-loader.js"></script>
+
   <!-- =======================================================
        JAVASCRIPT
   ======================================================= -->
@@ -2319,15 +2197,6 @@
 
     const moreButton =
       document.getElementById("moreButton");
-
-    const menuButton =
-      document.getElementById("menuButton");
-
-    const menuClose =
-      document.getElementById("menuClose");
-
-    const sideMenu =
-      document.getElementById("sideMenu");
 
     const modalOverlay =
       document.getElementById("modalOverlay");
@@ -2457,24 +2326,6 @@
 
 
     /* =======================================================
-       MENU
-    ======================================================= */
-
-    menuButton.addEventListener("click", () => {
-
-      sideMenu.classList.add("open");
-
-    });
-
-
-    menuClose.addEventListener("click", () => {
-
-      sideMenu.classList.remove("open");
-
-    });
-
-
-    /* =======================================================
        MODAL
     ======================================================= */
 
@@ -2599,7 +2450,7 @@
         isso já funcionará normalmente.
       */
 
-      window.location.href = "index.html";
+      window.location.href = "home.html";
 
     }
 
@@ -2615,8 +2466,6 @@
         if (event.key === "Escape") {
 
           modalOverlay.classList.remove("show");
-
-          sideMenu.classList.remove("open");
 
         }
 

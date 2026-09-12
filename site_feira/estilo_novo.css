@@ -1,383 +1,375 @@
 @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box
+  box-sizing: border-box;
 }
 
 :root {
-    --rosa-pessego: #f8c9bb;
-    --rosa-painel: #f5deec;
-    --rosa-botao: #f2c7c1;
-    --rosa-strong: #ff2f63
+  --page-bg: #fff8f3;
+  --ink-900: #543a41;
+  --ink-700: #66565c;
+  --text-soft: #8c7a80;
+  --line: #e4b6be;
+  --pink-200: #f7bccb;
+  --pink-300: #f2a6bd;
+  --rose-200: #ffe8ea;
+  --cream: #fffaf5;
+  --cream-dark: #f9dfb5;
+  --pink-soft: #fce5e4;
+  --shadow: rgba(120, 80, 90, 0.16);
 }
 
 body {
-    min-height: 100vh;
-    font-family: Arial, Helvetica, sans-serif;
-    color: #111;
-    background: linear-gradient(110deg, #ffe9b9 0%, #ffc2ae 28%, #ff9dbc 62%, #e888c3 100%);
-    position: relative;
-    overflow-x: hidden
+  min-height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--ink-700);
+  background:
+    radial-gradient(circle at 78% 12%, rgba(255, 250, 248, 0.75), transparent 15%),
+    radial-gradient(circle at 24% 80%, rgba(250, 211, 218, 0.5), transparent 16%),
+    linear-gradient(135deg, #efa3c4 0%, #f2abc9 32%, #f7bdc7 58%, #f9ccc0 78%, #f8d7c3 100%);
+  position: relative;
+  overflow-x: hidden;
 }
 
-body:before,
-body:after {
-    content: "";
-    position: fixed;
-    border: 18px solid rgba(255, 255, 255, .22);
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 0
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  border: 44px solid rgba(255, 255, 255, 0.34);
+  pointer-events: none;
+  z-index: 0;
 }
 
-body:before {
-    width: 390px;
-    height: 390px;
-    left: -215px;
-    top: -170px
+body::before {
+  left: -190px;
+  top: -150px;
 }
 
-body:after {
-    width: 380px;
-    height: 380px;
-    right: -220px;
-    bottom: -220px
+body::after {
+  right: -180px;
+  bottom: -180px;
 }
 
 .page {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 38px 24px;
-    position: relative;
-    z-index: 1
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 42px 24px;
+  position: relative;
+  z-index: 1;
 }
 
 .card {
-    width: min(1120px, 100%);
-    min-height: 500px;
-    border: 1.5px solid rgba(90, 55, 55, .42);
-    border-radius: 58px;
-    overflow: hidden;
-    box-shadow: 0 16px 40px rgba(110, 64, 80, .14)
+  width: min(1140px, 100%);
+  min-height: 560px;
+  border: 1.5px solid rgba(90, 55, 55, 0.4);
+  border-radius: 42px;
+  overflow: hidden;
+  box-shadow: 0 18px 60px var(--shadow);
+  background: var(--cream);
 }
 
 .login-card {
-    display: grid;
-    grid-template-columns: 58% 42%
+  display: grid;
+  grid-template-columns: 1.12fr 0.88fr;
 }
 
 .welcome {
-    background: rgba(248, 198, 181, .95);
-    padding: 42px 58px 52px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center
+  background:
+    radial-gradient(circle at 70% 10%, rgba(255,255,255,.8), transparent 20%),
+    linear-gradient(160deg, var(--pink-200), var(--pink-soft));
+  padding: 46px 56px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 560px;
 }
 
-.login-panel {
-    background: rgba(245, 222, 236, .96);
-    padding: 42px 58px 48px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center
-}
-
-.brand {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    line-height: .95;
-    color: #9d685f;
-    margin-bottom: 30px
-}
-
-.brand-initials {
-    font-family: 'Great Vibes', cursive;
-    font-size: 58px
-}
-
-.brand span:last-child {
-    font-family: Georgia, 'Times New Roman', serif;
-    font-size: 28px
-}
-
-h1,
-h2 {
-    font-family: 'Great Vibes', cursive;
-    font-weight: 400
-}
-
-.welcome h1 {
-    font-size: clamp(42px, 5vw, 60px);
-    margin-bottom: 26px
-}
-
-.welcome p {
-    font-family: 'Great Vibes', cursive;
-    font-size: clamp(27px, 3vw, 37px);
-    line-height: 1.3;
-    max-width: 680px
-}
-
-.login-panel h2 {
-    font-size: clamp(48px, 5vw, 64px);
-    text-align: center;
-    margin-bottom: 32px
-}
-
-form {
-    display: flex;
-    flex-direction: column
-}
-
-label {
-    font-size: 16px;
-    margin: 0 0 9px 5px
-}
-
-input {
-    width: 100%;
-    height: 48px;
-    border: 1px solid #777;
-    border-radius: 12px;
-    background: #f8f8f8;
-    padding: 0 15px;
-    font-size: 16px;
-    outline: none;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, .12);
-    margin-bottom: 25px
-}
-
-input:focus {
-    border-color: #c97887;
-    box-shadow: 0 0 0 3px rgba(255, 116, 153, .14)
-}
-
-.main-button {
-    width: 150px;
-    height: 48px;
-    align-self: center;
-    border: 1px solid #ba9896;
-    border-radius: 15px;
-    background: var(--rosa-botao);
-    color: #191919;
-    font-family: Georgia, 'Times New Roman', serif;
-    font-size: 16px;
-    font-weight: 700;
-    padding: 11px 20px;
-    cursor: pointer;
-    box-shadow: 0 4px 9px rgba(0, 0, 0, .14)
-}
-
-.main-button:hover {
-    filter: brightness(.97);
-    transform: translateY(-1px)
-}
-
-.register-text {
-    text-align: center;
-    margin-top: 22px;
-    font-size: 14px
-}
-
-.register-text a {
-    color: var(--rosa-strong);
-    font-weight: 700;
-    text-decoration: none
-}
-
-.register-text a:hover {
-    text-decoration: underline
-}
-
-.cadastro-card {
-    position: relative;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    background: rgba(248, 198, 181, .96)
-}
-
-.cadastro-content {
-    padding: 48px 70px 52px 80px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center
-}
-
-.cadastro-content h1 {
-    text-align: center;
-    font-size: clamp(52px, 5vw, 72px);
-    margin-bottom: 34px
-}
-
-.cadastro-content input {
-    max-width: 380px;
-    margin-bottom: 17px
-}
-
-.cadastro-brand {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 40px
-}
-
-.cadastro-brand .brand {
-    margin: 0;
-    transform: scale(1.25)
-}
-
-.cadastro-card {
-    position: relative;
-
-    display: grid;
-
-    grid-template-columns: 58% 42%;
-
-    width: min(1120px, 100%);
-
-    min-height: 500px;
-
-    overflow: hidden;
-
-    border-radius: 58px;
-}
-
-.cadastro-arte {
-    position: relative;
-
-    min-height: 500px;
-
-    overflow: hidden;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    background: rgba(255, 235, 235, 0.35);
-}
-
-#florCanvas {
-    position: absolute;
-
-    inset: 0;
-
-    width: 100%;
-    height: 100%;
-}
-.frase {
-    position: absolute;
-
-    top: 45px;
-
-    left: 50%;
-
-    transform: translateX(-50%);
-
-    width: 85%;
-
-    text-align: center;
-
-    z-index: 2;
-}
-
-.frase h2 {
-    font-family: "Great Vibes", cursive;
-
-    font-size: 38px;
-
-    font-weight: normal;
-
-    line-height: 1.1;
-
-    color: #8f5d57;
-}
-
-.frase p {
-    margin-top: 12px;
-
-    font-size: 15px;
-
-    line-height: 1.5;
-
-    color: #705454;
-}
-.back-link {
-    position: absolute;
-    top: 24px;
-    left: 30px;
-    z-index: 2;
-    color: #9b655d;
-    text-decoration: none;
-    font-size: 42px;
-    line-height: 1
-}
-
-.back-link:hover {
-    color: #ff4776
-}
-
-@media(max-width:850px) {
-
-    .login-card,
-    .cadastro-card {
-        grid-template-columns: 1fr
-    }
-
-    .welcome,
-    .login-panel,
-    .cadastro-content,
-    .cadastro-brand {
-        padding: 40px 28px
-    }
-
-    .welcome p {
-        font-size: 28px
-    }
-
-    .cadastro-brand {
-        padding-top: 15px;
-        padding-bottom: 45px
-    }
-}
-
-@media(max-width:520px) {
-    .page {
-        padding: 18px 12px
-    }
-
-    .card {
-        border-radius: 34px
-    }
-
-    .welcome h1 {
-        font-size: 42px
-    }
-
-    .welcome p {
-        font-size: 24px
-    }
-
-    .login-panel h2,
-    .cadastro-content h1 {
-        font-size: 50px
-    }
-
-    .back-link {
-        left: 20px;
-        top: 16px
-    }
+.welcome::before {
+  content: "";
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  border: 2px solid rgba(255,255,255,0.8);
+  position: absolute;
+  opacity: .9;
 }
 
 .logo {
-    width: 300px;
-    height: 300px;
+  width: 210px;
+  height: 210px;
+  object-fit: contain;
+  border-radius: 50%;
+  background: #fff;
+  padding: 10px;
+  border: 2px solid rgba(255,255,255,0.95);
+  box-shadow: 0 12px 24px var(--shadow);
+  margin-bottom: 22px;
+}
+
+.welcome h1 {
+  font-family: "DM Serif Display", Georgia, serif;
+  color: var(--ink-900);
+  font-size: clamp(40px, 4vw, 54px);
+  line-height: 1.2;
+  margin-bottom: 18px;
+}
+
+.welcome p {
+  font-family: "Inter", Arial, sans-serif;
+  font-size: clamp(20px, 2.1vw, 28px);
+  color: var(--text-soft);
+  line-height: 1.5;
+  max-width: 460px;
+}
+
+.login-panel {
+  background: rgba(255, 250, 245, 0.96);
+  padding: 44px 54px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.login-panel h2 {
+  font-family: "DM Serif Display", Georgia, serif;
+  color: var(--ink-900);
+  font-size: clamp(44px, 4vw, 56px);
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--ink-700);
+  margin: 0 0 8px 5px;
+}
+
+input {
+  width: 100%;
+  min-height: 48px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: #fff;
+  padding: 0 15px;
+  font-size: 16px;
+  color: var(--ink-900);
+  outline: none;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.04);
+  margin-bottom: 22px;
+}
+
+input:focus {
+  border-color: var(--pink-300);
+  box-shadow: 0 0 0 3px rgba(242,166,189,0.22);
+}
+
+.main-button {
+  width: min(190px, 100%);
+  height: 48px;
+  align-self: center;
+  border: 0;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--pink-300), var(--pink-200));
+  color: var(--ink-900);
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  padding: 11px 30px;
+  cursor: pointer;
+  box-shadow: 0 10px 18px var(--shadow);
+  transition: transform var(--fast) ease, filter var(--fast) ease;
+}
+
+.main-button:hover {
+  filter: saturate(1.03);
+  transform: translateY(-2px);
+}
+
+.register-text {
+  text-align: center;
+  margin-top: 22px;
+  font-size: 14px;
+  color: var(--text-soft);
+}
+
+.register-text a {
+  color: var(--pink-300);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.register-text a:hover {
+  text-decoration: underline;
+}
+
+.cadastro-card {
+  position: relative;
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  background: rgba(255, 250, 245, 0.95);
+}
+
+.cadastro-content {
+  padding: 56px 60px 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: rgba(255,250,245,0.96);
+}
+
+.cadastro-content h1 {
+  font-family: "DM Serif Display", Georgia, serif;
+  color: var(--ink-900);
+  font-size: clamp(44px, 4vw, 56px);
+  text-align: center;
+  margin-bottom: 22px;
+}
+
+.cadastro-content form {
+  width: min(420px, 100%);
+  margin: 0 auto;
+}
+
+.cadastro-content .main-button {
+  margin-top: 8px;
+}
+
+.cadastro-content input {
+  margin-bottom: 16px;
+}
+
+.cadastro-arte {
+  position: relative;
+  min-height: 560px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    radial-gradient(circle at 15% 86%, rgba(255,255,255,.75), transparent 18%),
+    linear-gradient(150deg, var(--rose-200), var(--pink-200));
+}
+
+.cadastro-arte::before {
+  content: "";
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  border: 2px solid rgba(255,255,255,.6);
+  position: absolute;
+}
+
+#florCanvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.frase {
+  position: absolute;
+  top: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(320px, 85%);
+  text-align: center;
+  z-index: 2;
+}
+
+.frase h2 {
+  font-family: "Great Vibes", cursive;
+  font-size: clamp(40px, 3vw, 52px);
+  font-weight: normal;
+  line-height: 1.2;
+  color: var(--ink-700);
+}
+
+.frase p {
+  margin-top: 14px;
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 16px;
+  color: var(--text-soft);
+}
+
+.back-link {
+  position: absolute;
+  top: 24px;
+  left: 30px;
+  z-index: 3;
+  color: var(--ink-900);
+  text-decoration: none;
+  font-family: "DM Serif Display", Georgia, serif;
+  font-size: 42px;
+  line-height: 1;
+}
+
+.back-link:hover {
+  color: var(--pink-300);
+}
+
+@media (max-width: 850px) {
+  .login-card,
+  .cadastro-card {
+    grid-template-columns: 1fr;
+  }
+
+  .login-card .welcome,
+  .login-card .login-panel,
+  .cadastro-content,
+  .cadastro-arte {
+    min-height: auto;
+  }
+
+  .welcome,
+  .login-panel,
+  .cadastro-content {
+    padding: 40px 28px;
+  }
+
+  .cadastro-arte {
+    min-height: 300px;
+  }
+}
+
+@media (max-width: 520px) {
+  .page {
+    padding: 18px 12px;
+  }
+
+  .card {
+    border-radius: 34px;
+  }
+
+  .welcome h1 {
+    font-size: 42px;
+  }
+
+  .welcome p {
+    font-size: 24px;
+  }
+
+  .login-panel h2,
+  .cadastro-content h1 {
+    font-size: 50px;
+  }
+
+  .back-link {
+    left: 20px;
+    top: 16px;
+  }
 }

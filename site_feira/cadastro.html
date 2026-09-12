@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Elas em rede | Cadastro</title>
+  <link rel="stylesheet" href="estilo_home_feira.css">
   <link rel="stylesheet" href="estilo_novo.css">
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
 </head>
@@ -12,10 +13,10 @@
 <body>
   <main class="page">
     <section class="card cadastro-card">
-      <a class="back-link" href="index_novo.html" aria-label="Voltar para o login">←</a>
+      <a class="back-link" href="login.html" aria-label="Voltar para o login">←</a>
       <div class="cadastro-content">
         <h1>Cadastro</h1>
-        <form action="#" method="post">
+        <form action="home.html" method="post">
           <label for="nome">Digite seu nome:</label>
           <input type="text" id="nome" name="nome" required>
           <label for="telefone">Digite seu telefone:</label>
@@ -28,52 +29,21 @@
         </form>
       </div>
       <div class="cadastro-arte">
-
         <canvas id="florCanvas"></canvas>
-
         <div class="frase">
-
           <h2>
             Pequenos passos
             <br>
             fazem grandes histórias.
           </h2>
-
           <p>
             Você está criando
             algo novo.
           </p>
-
         </div>
-
       </div>
-
-      </div>
-
     </section>
   </main>
-  <div class="cadastro-arte">
-
-    <canvas id="florCanvas"></canvas>
-
-    <div class="frase">
-
-      <h2>
-        Pequenos passos
-        <br>
-        fazem grandes histórias.
-      </h2>
-
-      <p>
-        Você está criando
-        algo novo.
-      </p>
-
-    </div>
-
-  </div>
-
-  </div>
 
   <script src="flor.js"></script>
 
